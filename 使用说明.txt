@@ -23,3 +23,9 @@ Google Cloud 必需配置：
 安全说明：
 - 前端只包含 OAuth Client ID，不包含 Client Secret。
 - 使用 drive.file 最小权限。
+
+V18.3 Android Mobile Fix
+- 修复重复 OAuth 函数覆盖问题。
+- Android Chrome 的 Google 授权请求直接从点击事件触发。
+- Save/Load 在没有令牌时也会直接发起授权，并在授权成功后继续操作。
+- 增加 15 秒无响应提示及 popup 错误信息。
