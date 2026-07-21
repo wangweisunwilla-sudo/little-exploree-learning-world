@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="620" viewBox="0 0 420 620">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#76d4ea"/><stop offset="1" stop-color="#208ebd"/></linearGradient></defs>
+<rect width="420" height="620" rx="26" fill="url(#g)"/>
+<circle cx="210" cy="235" r="128" fill="#fff" opacity=".97"/>
+<path d="M144 197c38-42 94-45 132 0" fill="none" stroke="#1f3957" stroke-width="15" stroke-linecap="round"/>
+<circle cx="167" cy="240" r="10" fill="#1f3957"/><circle cx="253" cy="240" r="10" fill="#1f3957"/>
+<path d="M170 291c24 24 56 24 80 0" fill="none" stroke="#1f3957" stroke-width="10" stroke-linecap="round"/>
+<text x="210" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="68" font-weight="700" fill="#fff">WONDER</text>
+<text x="210" y="482" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" fill="#eafaff">A READING ADVENTURE</text>
+<path d="M72 540h276" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>
+<text x="210" y="578" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#fff">R. J. Palacio</text>
+</svg>
