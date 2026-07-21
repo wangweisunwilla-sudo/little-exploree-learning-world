@@ -1,25 +1,25 @@
-Little Explorer Learning World V17.1 Family Sync Stable
+Little Explorer Learning World V18 Family Sync · Official GIS
 
-上传到 GitHub
+上传方法：
 1. 解压 ZIP。
-2. 打开 GitHub 仓库 little-exploree-learning-world。
-3. Add file → Upload files。
-4. 上传 index.html、assets 文件夹和本说明文件。
-5. 点击 Commit changes。
-6. 等待 Actions 显示绿色勾，再从 GitHub Pages 网站打开。
+2. 将 index.html、assets 文件夹和本说明上传到 GitHub 仓库根目录并覆盖旧文件。
+3. 等待 GitHub Pages 部署完成。
+4. 用 HTTPS 网站打开，并按 Command+Shift+R 强制刷新。
 
-正确网站地址
-https://wangweisunvilla-sudo.github.io/little-exploree-learning-world/
-
-重要：不能从 Finder 双击 index.html。地址栏出现 file:// 时，Google OAuth 一定会失败。
-
-Google Cloud 检查
+Google Cloud 必需配置：
 - OAuth Client 类型：Web application
-- Authorized JavaScript origins：
-  https://wangweisunvilla-sudo.github.io
-  不带仓库路径，不带末尾斜杠。
-- Authorized redirect URIs：留空
-- Audience → Test users：加入实际登录的 Gmail
-- APIs & Services：启用 Google Drive API
+- Authorized JavaScript origin：https://wangweisunvilla-sudo.github.io
+- Google Drive API：Enabled
+- Data Access scope：https://www.googleapis.com/auth/drive.file
+- 测试期间：登录账号加入 Test users
 
-网页只使用 OAuth Client ID，不包含 Client Secret。
+首次使用：
+1. 浏览器允许该网站弹出窗口。
+2. 点击“连接 Google Drive”。
+3. 完成 Google 账号选择和授权。
+4. 点击“保存到云端”。
+5. 另一台设备先连接，再点击“从云端载入”。
+
+安全说明：
+- 前端只包含 OAuth Client ID，不包含 Client Secret。
+- 使用 drive.file 最小权限。
