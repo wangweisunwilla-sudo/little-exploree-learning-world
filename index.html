@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>晞白的学习世界 V17.1 Family Sync Stable</title>
+<title>Little Explorer Learning World V21 Alpha</title>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <style>
@@ -149,7 +149,8 @@ h1{
 .legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px}
 .legend span::before{content:"";display:inline-block;width:11px;height:11px;border-radius:4px;margin-right:5px;vertical-align:-1px}
 .lg-study::before{background:var(--study)}.lg-course::before{background:var(--course)}.lg-rest::before{background:var(--rest)}.lg-outdoor::before{background:var(--outdoor)}.lg-life::before{background:var(--life)}
-.week-grid{display:grid;grid-template-columns:repeat(7,minmax(190px,1fr));gap:9px;overflow-x:auto;padding:4px 2px 10px;position:relative;z-index:1}
+.week-grid{display:grid;grid-template-columns:repeat(7,270px);gap:12px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 18px;position:relative;z-index:1;scrollbar-gutter:stable;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.week-grid::-webkit-scrollbar{height:12px}.week-grid::-webkit-scrollbar-track{background:#eee4cf;border-radius:10px}.week-grid::-webkit-scrollbar-thumb{background:#aebc8c;border:2px solid #eee4cf;border-radius:10px}.week-grid{scrollbar-color:#aebc8c #eee4cf;scrollbar-width:auto}
 .day-col{
   border:1px solid #d5c39d;border-radius:14px;padding:9px;background:#fffaf1;min-height:590px;
   box-shadow:0 5px 0 rgba(151,115,72,.10);overflow:hidden
@@ -168,12 +169,12 @@ h1{
 .slot-time{font-size:10px;color:#7a6a50;font-weight:900;margin:0 0 3px 5px}
 .slot-body{
   border:1px solid rgba(128,103,70,.12);border-radius:9px;padding:8px;
-  display:grid;grid-template-columns:auto auto 1fr auto;gap:6px;align-items:center;
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px;align-items:center;
   font-size:11px;line-height:1.3;box-shadow:inset 0 1px rgba(255,255,255,.65)
 }
 .slot-body.study{background:var(--study)}.slot-body.course{background:var(--course)}
 .slot-body.rest{background:var(--rest)}.slot-body.outdoor{background:var(--outdoor)}.slot-body.life{background:var(--life)}
-.slot-icon{font-size:15px}.slot-check{width:17px;height:17px;accent-color:var(--green)}
+.slot-body>span:not(.slot-tools){display:block;max-width:15em;white-space:normal;overflow-wrap:anywhere;word-break:break-word}.slot-body>span:not(.slot-tools) small{display:block;max-width:15em;margin-top:3px;white-space:normal;overflow-wrap:anywhere;word-break:break-word}.slot-icon{font-size:15px}.slot-check{width:17px;height:17px;accent-color:var(--green)}
 .slot-tools{display:flex;gap:2px}.icon-btn{border:0;background:transparent;color:#6f7566;padding:2px 4px}
 .add-slot{margin-top:7px;border:1px dashed #bca77c;background:#fff8e5;color:#587349;border-radius:9px;padding:7px;width:100%;font-size:11px;font-weight:900}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -283,6 +284,36 @@ label{font-size:12px;font-weight:800;display:block;margin:8px 0 4px}.form-grid{d
 
 
 .jump-section{scroll-margin-top:24px}.section-flash{animation:sectionFlash 1.15s ease}.sentence-bank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.sentence-bank-card{position:relative;padding:18px;border:1px solid #d8c49b;border-radius:16px;background:linear-gradient(145deg,#fffdf6,#f7edcf);box-shadow:0 8px 18px rgba(82,61,31,.10)}.sentence-bank-card:before{content:"";position:absolute;top:-5px;left:38%;width:72px;height:16px;background:rgba(223,197,126,.55);transform:rotate(-2deg)}.sentence-bank-meta{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:12px;color:#76644c;font-weight:700}.sentence-bank-card blockquote{margin:16px 0;font-family:Georgia,serif;font-size:19px;line-height:1.55;color:#443726}.sentence-bank-footer{display:flex;align-items:center;justify-content:space-between;gap:10px}.empty-bank{padding:24px;border:1px dashed #ccb98f;border-radius:14px;background:#fffaf0;color:#796b54;text-align:center}@keyframes sectionFlash{0%{box-shadow:0 0 0 0 rgba(206,158,61,.65)}50%{box-shadow:0 0 0 8px rgba(206,158,61,.22)}100%{box-shadow:var(--shadow)}}
+
+/* V19 · Explorer Energy + Mistake Lab */
+.reward-pill{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:linear-gradient(135deg,#fff7cf,#ffe39a);border:1px solid #e5bd58;font-weight:900;color:#684b08;box-shadow:0 5px 14px rgba(108,77,8,.12)}
+.reward-grid,.mistake-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.reward-stat,.mistake-stat{padding:16px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.82);text-align:center}.reward-stat b,.mistake-stat b{display:block;font-size:26px;color:var(--green)}.reward-stat span,.mistake-stat span{font-size:12px;color:var(--muted);font-weight:800}
+.energy-track{height:16px;border-radius:999px;background:#ece8da;overflow:hidden}.energy-fill{height:100%;background:linear-gradient(90deg,#79b767,#e6bd4c);transition:width .35s ease}.badge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.badge-card{padding:14px;border-radius:14px;border:1px solid var(--line);background:#fff}.badge-card.locked{filter:grayscale(1);opacity:.55}.badge-card strong{display:block;margin-bottom:4px}
+.mistake-layout{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.5fr);gap:16px}.mistake-form{position:sticky;top:15px}.mistake-card{padding:16px;border:1px solid var(--line);border-radius:16px;background:#fff;margin-bottom:12px}.mistake-card.due{border-color:#db9e40;box-shadow:0 0 0 3px rgba(219,158,64,.10)}.mistake-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.mistake-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.tag{display:inline-flex;padding:4px 8px;border-radius:999px;background:#edf4e8;color:#45603e;font-size:11px;font-weight:900}.tag.warn{background:#fff0d7;color:#8a5717}.mistake-photo{width:100%;max-height:260px;object-fit:contain;border-radius:12px;background:#f7f4eb;margin:10px 0}.review-buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.review-buttons button{flex:1;min-width:95px}.empty-lab{padding:28px;text-align:center;border:1px dashed var(--line);border-radius:16px;color:var(--muted)}
+.reward-toast{position:fixed;right:20px;bottom:24px;z-index:9999;padding:12px 16px;border-radius:14px;background:#263a2a;color:white;font-weight:900;box-shadow:0 10px 30px rgba(0,0,0,.2);animation:rewardToast 2.4s ease forwards}@keyframes rewardToast{0%{opacity:0;transform:translateY(15px)}15%,75%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-8px)}}
+@media(max-width:800px){.reward-grid,.mistake-summary{grid-template-columns:repeat(2,1fr)}.mistake-layout{grid-template-columns:1fr}.mistake-form{position:static}}
+/* V19.1 · Correction workspace */
+.ocr-panel{margin:10px 0;padding:12px;border:1px solid var(--line);border-radius:14px;background:#f7faf3}.ocr-panel textarea{min-height:100px}.ocr-status{display:flex;align-items:center;gap:8px;min-height:24px;margin-top:8px;color:var(--muted);font-size:12px;font-weight:700}.ocr-spinner{width:14px;height:14px;border:2px solid #d5dfcf;border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.analysis-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.correction-quick{margin:12px 0;padding:12px;border:1px dashed var(--line);border-radius:14px;background:#fbfcf7}.correction-quick textarea{min-height:92px}.correction-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.correction-modal-card{width:min(900px,96vw)}.correction-grid{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(0,1.1fr);gap:18px}.correction-question-pane{background:#f7f4eb;border-radius:16px;padding:14px}.correction-question-pane img{width:100%;max-height:520px;object-fit:contain;border-radius:12px;background:white}.answer-sheet{background:repeating-linear-gradient(to bottom,#fff 0,#fff 34px,#dce4d6 35px);border:1px solid var(--line);border-radius:14px;min-height:210px;padding:12px;line-height:35px;resize:vertical}.correction-meta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}.pending-banner{padding:10px 12px;border-radius:12px;background:#fff2d9;color:#7c551a;font-weight:800;margin-bottom:12px}@media(max-width:760px){.correction-grid{grid-template-columns:1fr}.correction-question-pane img{max-height:360px}}
+
+
+
+.novel-folds{display:grid;gap:16px;margin-top:18px}.novel-fold{border:1px solid #d8c49b;border-radius:18px;background:#fffdf7;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:24px}.fold-toggle{width:100%;border:0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;background:linear-gradient(135deg,#fff8e7,#f3e5bd);color:#443726;text-align:left;font:inherit}.fold-toggle:hover{filter:brightness(.985)}.fold-toggle:focus-visible{outline:3px solid rgba(85,153,223,.35);outline-offset:-3px}.fold-toggle>span:first-child{display:grid;gap:4px}.fold-toggle strong{font-size:20px}.fold-toggle small{color:#75664f;font-weight:500}.fold-arrow{font-size:25px;transition:transform .2s}.novel-fold.is-open .fold-arrow{transform:rotate(180deg)}.fold-body{display:none;padding:18px}.novel-fold.is-open .fold-body{display:block}.fold-toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}.vocab-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(235px,1fr))!important;gap:14px!important;visibility:visible!important;opacity:1!important}.vocab-card{display:block!important;color:#3d382f!important;background:linear-gradient(145deg,#fffef9,#f7ecd4)!important;border:1px solid #d6c39b!important;min-width:0;min-height:190px;overflow-wrap:anywhere}.vocab-card b{display:block;color:#355b3c!important}.day-checkbox-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:6px}.day-check{margin:0!important}.day-check input{position:absolute;opacity:0;pointer-events:none}.day-check span{display:block;text-align:center;padding:9px 6px;border:1px solid #cbd5df;border-radius:9px;background:#fff;cursor:pointer;font-weight:700;color:#40536b}.day-check input:checked+span{background:#e7f4ff;border-color:#5599df;color:#155ba6;box-shadow:0 0 0 2px rgba(85,153,223,.12)}.slot-days-field{grid-column:1/-1}@media(max-width:620px){.day-checkbox-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.fold-body{padding:12px}.novel-fold summary{padding:15px}}
+
+.novel-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;padding:8px;border:1px solid #d8c49b;border-radius:16px;background:#fffaf0;position:sticky;top:8px;z-index:20;box-shadow:0 8px 20px rgba(82,61,31,.10)}
+.novel-tab-btn{flex:1 1 150px;border:1px solid transparent;border-radius:12px;padding:12px 14px;background:transparent;color:#62533e;font:inherit;font-weight:800;cursor:pointer}
+.novel-tab-btn:hover{background:#f7ecd4}.novel-tab-btn.active{background:linear-gradient(135deg,#476b4d,#65825d);color:#fff;box-shadow:0 5px 12px rgba(53,91,60,.22)}
+.novel-tab-panel{display:none}.novel-tab-panel.active{display:block;animation:novelTabIn .18s ease}.novel-tab-card{padding:20px;border:1px solid #d8c49b;border-radius:18px;background:#fffdf7;box-shadow:var(--shadow);scroll-margin-top:90px}
+.novel-tab-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}.novel-tab-head p{margin:4px 0 0;color:#75664f}
+.imitation-grid{display:grid;gap:14px}.imitation-card{padding:17px;border:1px solid #dcc99f;border-radius:15px;background:linear-gradient(145deg,#fffef9,#f8efd9)}.imitation-source{padding:12px;border-left:4px solid #c9a95e;background:#fffaf0;border-radius:8px;font-family:Georgia,serif}.imitation-answer{margin-top:10px;padding:12px;border-radius:9px;background:#eef5e9;min-height:48px}.imitation-empty{padding:26px;text-align:center;border:1px dashed #ccb98f;border-radius:14px;background:#fffaf0;color:#796b54}
+@keyframes novelTabIn{from{opacity:.35;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media(max-width:620px){.novel-tabs{top:4px;gap:6px;padding:6px}.novel-tab-btn{flex:1 1 calc(50% - 6px);padding:10px 7px;font-size:13px}.novel-tab-card{padding:13px}.novel-tab-head{display:grid}}
+
+
+/* V20.3 · streamlined weekly planner header */
+.week-controls-head{align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.week-controls-head .legend{margin:0}
+.week-controls-head .toolbar{margin:0;justify-content:flex-end}
+@media(max-width:700px){.week-controls-head{align-items:stretch}.week-controls-head .toolbar{justify-content:flex-start}}
 </style>
 
 
@@ -803,6 +834,17 @@ h1{font-size:44px}
   font:700 29px/1.1 Georgia,"Times New Roman",serif;
 }
 .section-title-card p,.page-banner p{margin:0;color:#6b725f}
+.section-title-card{position:relative;padding-right:190px;overflow:hidden}
+.section-title-card::after{content:"";position:absolute;right:18px;bottom:-8px;width:150px;height:112px;background:url("assets/leo_reading.png") center bottom/contain no-repeat;pointer-events:none;filter:drop-shadow(0 7px 7px rgba(44,70,48,.12))}
+.novel-hero-art::after{content:"";position:absolute;right:2px;bottom:-5px;width:178px;height:158px;background:url("assets/leo_reading.png") center bottom/contain no-repeat;pointer-events:none;filter:drop-shadow(0 8px 8px rgba(44,70,48,.16))}
+.novel-hero-art{position:relative;min-height:170px}
+.curriculum-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.curriculum-shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;padding:22px 18px 30px;border-radius:18px;background:linear-gradient(#f7eedc 0 72%,#9a6d42 72% 76%,#6e482c 76% 100%);border:1px solid #d4bc93;min-height:280px}
+.curriculum-book{position:relative;min-height:235px;padding:18px 15px 15px;border-radius:10px 15px 15px 8px;background:linear-gradient(145deg,var(--book-a,#658864),var(--book-b,#385b46));color:#fff;box-shadow:inset 7px 0 rgba(255,255,255,.13),inset -4px 0 rgba(0,0,0,.12),0 13px 18px rgba(68,45,28,.22);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.curriculum-book::before{content:"";position:absolute;left:0;right:0;top:46px;height:2px;background:rgba(255,255,255,.34);box-shadow:0 5px rgba(0,0,0,.13)}
+.curriculum-book:nth-child(4n+2){--book-a:#617ea5;--book-b:#345376}.curriculum-book:nth-child(4n+3){--book-a:#a56f5e;--book-b:#754536}.curriculum-book:nth-child(4n+4){--book-a:#9275aa;--book-b:#614c78}
+.curriculum-book h3{margin:8px 0 5px;color:#fff;font:700 20px/1.25 Georgia,serif}.curriculum-book .book-meta{font-size:12px;opacity:.9;line-height:1.5}.curriculum-book .book-percent{font-size:24px;font-weight:900}.curriculum-book .book-progress{background:rgba(255,255,255,.25)}.curriculum-book .book-progress span{background:#fff}.curriculum-book .toolbar{gap:5px}.curriculum-book .btn{padding:6px 8px;font-size:11px;background:rgba(255,255,255,.9);border-color:transparent;color:#38534a}
+@media(max-width:700px){.section-title-card{padding-right:118px;min-height:118px}.section-title-card::after{right:5px;width:110px;height:95px}.novel-hero-art::after{width:130px;height:125px}.curriculum-shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:15px 12px 24px}.curriculum-book{min-height:220px;padding:14px 11px}.curriculum-book h3{font-size:16px}}
 .home-banner{
   position:relative;
   overflow:hidden;
@@ -969,6 +1011,21 @@ h1{font-size:44px}
 }
 </style>
 
+
+<style id="v23-clean-ui">
+/* V23 Clean UI: remove the sidebar brand image and start directly with navigation */
+.dashboard-sidebar{padding-top:26px!important}
+.dashboard-sidebar>.profile-brand,.dashboard-sidebar>.dashboard-brand{display:none!important}
+.dashboard-nav{margin-top:0!important}
+.settings-profile-row{display:flex;align-items:center;gap:16px;padding:14px 0 18px;margin-bottom:6px;border-bottom:1px solid rgba(91,72,48,.15)}
+.settings-avatar-button{width:96px;height:96px;flex:0 0 96px;padding:0;border:0;background:transparent;position:relative;overflow:hidden;border-radius:50%;cursor:pointer}
+.settings-avatar-button img{width:100%;height:100%;display:block;object-fit:cover;border-radius:50%}
+.settings-avatar-button span{position:absolute;left:8px;right:8px;bottom:7px;padding:4px 5px;border-radius:12px;background:rgba(43,55,43,.78);color:#fff;font-size:11px;font-weight:800;opacity:0;transition:opacity .18s ease}
+.settings-avatar-button:hover span,.settings-avatar-button:focus-visible span{opacity:1}
+.settings-avatar-button:focus-visible{outline:3px solid #9fc6e8;outline-offset:3px}
+.settings-profile-copy{min-width:0}.settings-profile-copy b{font-size:17px;color:#31533f}.settings-profile-copy p{margin:6px 0 0}
+@media(max-width:900px){.dashboard-sidebar{padding-top:14px!important}.settings-avatar-button{width:82px;height:82px;flex-basis:82px}}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
@@ -1045,26 +1102,17 @@ h1{font-size:44px}
 
 <div class="app">
 <aside class="sidebar dashboard-sidebar">
-  <div class="dashboard-brand">
-    <img src="assets/dashboard_logo_art.jpg" alt="晞白和小狗一起阅读">
-    <b>晞白的学习世界</b>
-  </div>
+  <input id="profileAvatarInput" type="file" accept="image/*" hidden onchange="handleProfileAvatar(event)">
   <div class="side-nav dashboard-nav">
     <button data-page="home" class="active"><svg class="nav-icon"><use href="#ico-home"></use></svg><span>学习主页</span></button>
     <button data-page="week"><svg class="nav-icon"><use href="#ico-week"></use></svg><span>本周学习计划</span></button>
-    <button data-page="novel"><svg class="nav-icon"><use href="#ico-reading"></use></svg><span>小说精读</span></button>
+    <button data-page="novel"><svg class="nav-icon"><use href="#ico-reading"></use></svg><span>阅读旅程</span></button>
     <button data-page="curriculum"><svg class="nav-icon"><use href="#ico-books"></use></svg><span>我的书架</span></button>
     <button data-page="tasks"><svg class="nav-icon"><use href="#ico-bag"></use></svg><span>任务清单</span></button>
     <button data-page="exams"><svg class="nav-icon"><use href="#ico-trophy"></use></svg><span>即将挑战</span></button>
     <button data-page="stats"><svg class="nav-icon"><use href="#ico-chart"></use></svg><span>学习进度</span></button>
-    <button data-page="novel" data-scroll-target="sentenceBank"><svg class="nav-icon"><use href="#ico-pencil"></use></svg><span>金句收藏</span></button>
-    <button data-page="novel" data-scroll-target="vocabBank"><svg class="nav-icon"><use href="#ico-books"></use></svg><span>单词银行</span></button>
+    <button data-page="mistakes"><svg class="nav-icon"><use href="#ico-pencil"></use></svg><span>错题实验室</span></button>
     <button data-page="settings"><svg class="nav-icon"><use href="#ico-settings"></use></svg><span>设置</span></button>
-  </div>
-  <div class="dashboard-profile">
-    <div class="profile-avatar"><img src="assets/dashboard_logo_art.jpg" alt="晞白"></div>
-    <div><b>晞白</b><div class="small">三年级</div></div>
-    <button class="profile-btn" onclick="showPage('settings')">个人中心</button>
   </div>
 </aside>
 
@@ -1074,22 +1122,14 @@ h1{font-size:44px}
 <div class="hero-side-art v11-art" aria-hidden="true"></div><div class="topbar">
     <div>
       
-      <h1 id="weekTitle">20–26 Jul 学习冒险</h1>
-      <div class="subtitle">和晞白与小狗伙伴一起完成今天的学习任务，稳稳前进，也别忘记休息。</div>
-      <div class="tabs">
-        <button data-page="dashboard">项目看板</button>
-        <button data-page="week" class="active">周计划</button><button data-page="novel">小说精读</button>
-        <button data-page="curriculum">教材中心</button>
-        <button data-page="tasks">任务清单</button>
-        <button data-page="stats">统计图表</button>
-      </div>
+      <h1 id="weekTitle">Little Explorer Learning World</h1>
+      <div class="subtitle">今天从一个小目标开始，在阅读、练习和复习中稳稳前进。</div>
     </div>
     <div>
       <div class="top-actions">
         <button class="btn" onclick="saveData(true)">保存</button>
-        <button class="btn" onclick="generateWeek()">生成本周计划</button><button class="btn" onclick="openResetModal()">重置本周计划</button>
+        <button class="btn" onclick="generateWeek()">生成本周计划</button>
         <button class="btn" onclick="window.print()">打印 / PDF</button>
-        <button class="btn" onclick="showPage('settings')">设置</button>
       </div>
       <div class="progress-card">
         <div class="progress-head"><span id="progressText">0 / 0 已完成</span><span id="progressPct">0%</span></div>
@@ -1100,8 +1140,8 @@ h1{font-size:44px}
   </div>
 <section id="home" class="page active dashboard-home">
   <div class="dashboard-welcome">
-    <div><h1>欢迎回来，<span id="dashboardStudentName">晞白</span>！</h1><p>今天也要一起探索知识的海洋，收获满满的一天！</p></div>
-    <div class="dashboard-head-actions"><button class="clean-btn" onclick="showPage('stats')">★ 成就</button><button class="clean-btn" onclick="showPage('settings')"> 设置</button></div>
+    <div><h1>欢迎回来，<span id="dashboardStudentName">晞白</span>！</h1><p>今天的学习路线已经准备好了。完成一项，就向前走一步。</p></div>
+    <div class="dashboard-head-actions"><button class="clean-btn" onclick="showPage('stats')">学习成就</button><button class="clean-btn" onclick="showPage('settings')">设置</button></div>
   </div>
 
   <div class="goal-board">
@@ -1113,155 +1153,110 @@ h1{font-size:44px}
     <div id="dashboardComplete" class="complete-box"></div>
   </div>
 
-  <h2 class="dashboard-section-title">▦ 项目看板</h2>
+  <h2 class="dashboard-section-title">今日学习看板</h2>
   <div class="dashboard-board-grid">
     <div class="board-card task-board">
-      <div class="board-title"><h3>▣ 今日任务</h3><button onclick="showPage('week')">查看全部 ›</button></div>
+      <div class="board-title"><h3>今日任务</h3><button onclick="showPage('week')">查看全部 </button></div>
       <div id="dashFocus" class="board-body"></div>
       <div id="dashFocusSummary" class="board-footer"></div>
     </div>
     <div class="board-card challenge-board">
-      <div class="board-title"><h3>▣ 即将到来的挑战</h3><button onclick="showPage('exams')">查看全部 ›</button></div>
+      <div class="board-title"><h3>即将到来的挑战</h3><button onclick="showPage('exams')">查看全部 </button></div>
       <div id="dashExams" class="board-body"></div>
-      <div class="board-footer"><button onclick="showPage('exams')">查看所有考试和活动 →</button></div>
+      <div class="board-footer"><button onclick="showPage('exams')">查看所有考试和活动 </button></div>
     </div>
     <div class="board-card growth-board">
-      <div class="board-title"><h3>▥ 成长记录</h3><span>本周数据</span></div>
+      <div class="board-title"><h3>成长记录</h3><span>本周数据</span></div>
       <div id="dashStats" class="board-body"></div>
-      <div class="board-footer"><button onclick="showPage('stats')">查看详细统计 →</button></div>
+      <div class="board-footer"><button onclick="showPage('stats')">查看详细统计 </button></div>
     </div>
 
     <div class="board-card reading-board">
-      <div class="board-title"><h3>▣ 当前阅读</h3><button onclick="showPage('novel')">›</button></div>
+      <div class="board-title"><h3>▣ 当前阅读</h3><button onclick="showPage('novel')"></button></div>
       <div id="dashboardCurrentBook"></div>
     </div>
     <div class="board-card week-board">
-      <div class="board-title"><h3>▣ 本周学习计划</h3><button onclick="showPage('week')">›</button></div>
+      <div class="board-title"><h3>▣ 本周学习计划</h3><button onclick="showPage('week')"></button></div>
       <div id="dashboardWeekCard"></div>
     </div>
     <div class="board-card journey-board">
-      <div class="board-title"><h3>◉ 我的学习旅程</h3><button onclick="showPage('novel')">›</button></div>
-      <div class="journey-inner"><img src="assets/dashboard_journey_art.jpg" alt="晞白和小狗的学习旅程"><div><b>每一步的坚持<br>都是成长的足迹！</b><button onclick="openAdventureMap()">查看旅程地图</button></div></div>
+      <div class="board-title"><h3>◉ 我的学习旅程</h3><button onclick="showPage('novel')"></button></div>
+      <div class="journey-inner"><img src="assets/xibai_story_study.png" alt="原创学习旅程插画"><div><b>每一步的坚持<br>都是成长的足迹！</b><button onclick="openAdventureMap()">查看旅程地图</button></div></div>
     </div>
   </div>
-  <div class="dashboard-motto">★ 今天的努力，明天的收获。坚持阅读、坚持成长！</div>
+  <div class="dashboard-motto"> 今天的努力，明天的收获。坚持阅读、坚持成长！</div>
 </section>
 
 <section id="week" class="page">
-    <div class="section-title-card">
-      <div><h2 data-page-heading="week">周计划</h2><p>安排一周学习任务，完成后勾选并查看进度。</p></div>
-    </div>
     <div class="panel">
-      <div class="panel-head">
-        <div><h2>一周冒险路线</h2><p>每张任务卡都可以编辑、移动和重新安排。</p></div>
-        <div>
-          <div class="legend"><span class="lg-study">学习</span><span class="lg-course">教材 / 练习</span><span class="lg-rest">休息</span><span class="lg-outdoor">户外/活动</span><span class="lg-life">生活</span></div>
-          <div class="toolbar"><button class="btn" onclick="batch编辑Week()">批量编辑本周</button><button class="btn" onclick="openResetModal()">重置本周计划</button><button class="btn primary" onclick="openSlotModal()">添加学习项</button></div>
-        </div>
+      <div class="panel-head week-controls-head">
+        <div class="legend"><span class="lg-study">学习</span><span class="lg-course">教材 / 练习</span><span class="lg-rest">休息</span><span class="lg-outdoor">户外/活动</span><span class="lg-life">生活</span></div>
+        <div class="toolbar"><button class="btn" onclick="batchEditWeek()">批量编辑本周</button><button class="btn" onclick="openResetModal()">重置本周计划</button><button class="btn primary" onclick="openSlotModal()">添加学习项</button></div>
       </div>
-      <div id="weekGrid" class="week-grid"></div>
+      <div id="weekGrid" class="week-grid"></div><div class="week-mouse-scroll" aria-label="横向拖动本周学习计划"><input id="weekScrollRange" type="range" min="0" max="1000" value="0"></div>
     </div>
   </section>
 
 
   <section id="novel" class="page">
-    <div class="novel-hero card">
-      <div class="novel-hero-copy">
-        <h2 data-page-heading="novel">小说精读</h2>
-        <p>每天一章，约十分钟：阅读、积累三个词、收藏一个好句子、完成一句仿写和一句感想。</p>
-        <div class="toolbar">
-          <button class="btn primary" onclick="openChapterModal()">新增章节</button>
-          <button class="btn" onclick="document.getElementById('novelShelf').scrollIntoView({behavior:'smooth'})">查看我的书架</button>
-        </div>
-      </div>
-      <div class="novel-hero-art">
-        <div class="book-stack">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="novel-cat"></div>
-      </div>
-    </div>
-
-    
-    <div class="card wonder-library-card">
-      <div class="panel-head">
+    <div id="readingJourneyHub">
+      <div class="journey-page-head">
         <div>
-          <h3>Wonder 章节目录</h3>
-          <p>按 Part 展开章节。章节标题可以单独编辑，也可以从你的书中批量导入。</p>
+          <div class="journey-kicker">Reading Journey</div>
+          <h2 data-page-heading="novel">阅读旅程</h2>
+          <p>从书架选择一本书，查看阅读进度，并沿着探险地图继续前进。</p>
         </div>
-        <div class="toolbar">
-          <button class="btn primary" onclick="openWonderImportModal()">导入章节标题</button>
-          <button class="btn" onclick="resetWonderStructure()">恢复章节编号</button>
-        </div>
+        <button class="btn primary" onclick="openBookModal()">添加书籍</button>
       </div>
-      <div id="wonderToc" class="wonder-toc"></div>
+
+      <section class="journey-section journey-books-section">
+        <div class="journey-section-head">
+          <div><h3>我的书架</h3><p>点击书籍进入正式阅读导览。</p></div>
+          <div class="journey-filter" id="journeyBookFilter">
+            <button class="active" onclick="setJourneyFilter('all',this)">全部</button>
+            <button onclick="setJourneyFilter('reading',this)">正在阅读</button>
+            <button onclick="setJourneyFilter('done',this)">已完成</button>
+          </div>
+        </div>
+        <div id="journeyShelf" class="journey-shelf"></div>
+      </section>
+
+      <section class="journey-section">
+        <div class="journey-section-head"><div><h3>阅读进度</h3><p>所有书籍与章节的总体进展。</p></div></div>
+        <div id="journeyProgress" class="journey-progress-grid"></div>
+      </section>
+
+      <section class="journey-section journey-map-section" id="adventureMapSection">
+        <div class="journey-section-head"><div><h3>探险地图</h3><p id="journeyMapSubtitle">完成章节后，路线会自动向前推进。</p></div></div>
+        <div id="readingMap" class="journey-adventure-map"></div>
+      </section>
     </div>
 
-
-    <div class="novel-layout">
-      <div class="journal-shell">
-        <div class="panel-head" style="position:relative;z-index:2;color:#fff">
-          <div><h3 style="color:#fff">今日阅读手帐</h3><p style="color:#efe4cb">把今天的一章写进属于自己的探险日志。</p></div>
-          <button class="btn" onclick="openChapterModal()">添加章节</button>
-        </div>
-        <div id="chapterList"></div>
-      </div>
-
-      <div class="card jump-section" id="vocabBank">
-        <div class="panel-head">
-          <div><h3>单词银行</h3><p>把不熟悉的词放入复习盒。</p></div>
-          <button class="btn" onclick="openVocabModal()">新增词汇</button>
-        </div>
-        <div id="vocabList" class="vocab-grid"></div>
-      </div>
+    <div id="readingGuideView" class="reading-guide-view" hidden>
+      <button class="guide-back" onclick="closeReadingGuide()"><span aria-hidden="true">←</span> 返回阅读旅程</button>
+      <div id="readingGuideContent"></div>
     </div>
 
-    <div class="card jump-section" id="sentenceBank">
-      <div class="panel-head">
-        <div><h3>金句收藏</h3><p>把每一章喜欢的句子集中保存，随时回看。</p></div>
-        <button class="btn" onclick="openChapterModal()">新增金句</button>
-      </div>
-      <div id="sentenceList" class="sentence-bank-grid"></div>
-    </div>
-
-    <div class="novel-layout">
-      <div class="parchment-card" id="adventureMapSection">
-        <h3>Explorer Adventure Map</h3>
-        <p class="map-subtitle">每完成一章，Leo 就沿着羊皮纸路线前进一站。</p>
-        <div id="readingMap" class="parchment-map"></div>
-      </div>
-      <div class="card">
-        <h3>我的书架</h3>
-        <div id="novelShelf" class="shelf-grid"></div>
-        <div class="toolbar"><button class="btn primary" onclick="openBookModal()">添加书籍</button></div>
-      </div>
+    <div class="journey-compat" hidden aria-hidden="true">
+      <div id="novelShelf"></div><div id="chapterList"></div><div id="vocabList"></div>
+      <div id="sentenceList"></div><div id="imitationList"></div><div id="wonderToc"></div>
     </div>
   </section>
 
   <section id="curriculum" class="page">
-    <div class="section-title-card">
-      <div><div class="eyebrow">晞白的学习世界</div><h2 data-page-heading="curriculum">教材架</h2><p>整理教材、练习册和学习资源。</p></div>
+    <div class="section-title-card art-library">
+      <div><div class="eyebrow">Little Explorer Learning World</div><h2 data-page-heading="curriculum">Forest Library</h2><p>把教材放进书架，点击书本更新进度或继续学习。</p></div>
     </div>
-    <div class="grid2">
-      <div class="card">
-        <h3>新增教材</h3>
-        <div class="form-grid">
-          <div><label>教材名称</label><input id="bookName"></div>
-          <div><label>科目</label><select id="bookSubject"><option>English</option><option>Chinese</option><option>Science</option><option>Math</option><option>Piano</option></select></div>
-          <div><label>类型</label><select id="bookType"><option>Vocabulary</option><option>Novel</option><option>Reading Comprehension</option><option>Writing</option><option>Grammar</option><option>Practice</option></select></div>
-          <div><label>单元名称</label><input id="bookUnitLabel" value="Unit"></div>
-          <div><label>当前进度</label><input id="bookCurrent" type="number" value="0"></div>
-          <div><label>总单元</label><input id="bookTotal" type="number" value="20"></div>
-        </div>
-        <div class="toolbar"><button class="btn primary" onclick="addBook()">添加教材</button></div>
-      </div>
-      <div class="card"><h3><svg class="nav-icon"><use href="#ico-books"></use></svg><span>森林书屋</span></h3><div id="curriculumList"></div></div>
+    <div class="curriculum-toolbar">
+      <div><b>My Bookshelf</b><div class="small">每一本书代表一项正在进行的学习。</div></div>
+      <button class="btn primary" onclick="openCurriculumBookModal()">添加教材</button>
     </div>
+    <div id="curriculumList" class="curriculum-shelf"></div>
   </section>
 
   <section id="tasks" class="page">
-    <div class="section-title-card">
-      <div><div class="eyebrow">晞白的学习世界</div><h2 data-page-heading="tasks">任务</h2><p>记录重要作业、练习与截止日期。</p></div>
+    <div class="section-title-card art-tasks">
+      <div><div class="eyebrow">Little Explorer Learning World</div><h2 data-page-heading="tasks">任务清单</h2><p>记录重要作业、练习与截止日期。</p></div>
     </div>
     <div class="grid2">
       <div class="card">
@@ -1280,30 +1275,84 @@ h1{font-size:44px}
   </section>
 
   <section id="exams" class="page">
-    <div class="section-title-card">
-      <div><div class="eyebrow">晞白的学习世界</div><h2 data-page-heading="exams">考试</h2><p>查看考试日期，提前安排复习。</p></div>
+    <div class="section-title-card art-challenge">
+      <div><div class="eyebrow">Little Explorer Learning World</div><h2 data-page-heading="exams">挑战与考试</h2><p>集中查看考试、比赛和重要活动，提前安排准备时间。</p></div>
     </div>
-    <div class="grid2">
-      <div class="card">
-        <h3>新增考试 / 活动</h3>
-        <label>名称</label><input id="examName">
-        <div class="form-grid">
-          <div><label>科目</label><select id="examSubject"><option>Math</option><option>Science</option><option>English</option><option>Chinese</option><option>Other</option></select></div>
-          <div><label>日期</label><input id="examDate" type="date"></div>
-        </div>
-        <label>范围</label><input id="examScope">
-        <div class="toolbar"><button class="btn primary" onclick="addExam()">添加考试</button></div>
+    <div class="challenge-toolbar card">
+      <div><h3>挑战计划</h3><p class="small">按日期排列即将到来的考试、比赛与活动。</p></div>
+      <button class="btn primary" onclick="openExamModal()">增加挑战项目</button>
+    </div>
+    <div class="challenge-layout">
+      <div class="challenge-summary card">
+        <h3>准备概览</h3>
+        <div id="examSummary" class="challenge-summary-grid"></div>
       </div>
-      <div class="card"><h3><svg class="nav-icon"><use href="#ico-trophy"></use></svg><span>挑战塔</span></h3><div id="examList"></div></div>
+      <div class="card challenge-list-card">
+        <div class="challenge-list-head"><h3>挑战时间线</h3><span class="small">距离最近的项目排在最前</span></div>
+        <div id="examList" class="challenge-timeline"></div>
+      </div>
     </div>
   </section>
 
   <section id="stats" class="page">
+    <div class="section-title-card art-progress">
+      <div><div class="eyebrow">Little Explorer Learning World</div><h2 data-page-heading="stats">学习进度</h2><p>看看知识树、任务、英语技能和阅读足迹的成长。</p></div>
+    </div>
     <div class="grid2">
       <div class="card"><h3>知识树成长</h3><div id="bookStats"></div></div>
       <div class="card"><h3>本周星星</h3><div id="taskStats"></div></div>
       <div class="card"><h3>英语技能羽毛</h3><div id="englishStats"></div></div>
       <div class="card"><h3>阅读足迹</h3><div id="readingStats"></div></div>
+    </div>
+  </section>
+
+
+  <section id="mistakes" class="page">
+    <div class="section-title-card art-mistake">
+      <div><div class="eyebrow">Little Explorer Learning World</div><h2>Mistake Lab · 错题实验室</h2><p>发现错误、完成订正、间隔复习，让每一道错题最终毕业。</p></div>
+      <div class="reward-pill"><span id="energyTop">0</span> Explorer Energy</div>
+    </div>
+    <div class="reward-grid" style="margin:14px 0">
+      <div class="reward-stat"><b id="energyTotal">0</b><span>探索能量</span></div>
+      <div class="reward-stat"><b id="energyLevel">1</b><span>冒险等级</span></div>
+      <div class="reward-stat"><b id="energyStreak">0</b><span>连续学习天数</span></div>
+      <div class="reward-stat"><b id="energyGraduated">0</b><span>已毕业错题</span></div>
+    </div>
+    <div class="card">
+      <div class="item-top"><div><b>下一等级进度</b><div class="small" id="levelHint"></div></div><b id="levelPct">0%</b></div>
+      <div class="energy-track"><div class="energy-fill" id="energyFill" style="width:0%"></div></div>
+      <div class="badge-grid" id="badgeGrid" style="margin-top:14px"></div>
+    </div>
+    <div class="mistake-summary" style="margin:14px 0">
+      <div class="mistake-stat"><b id="mistakeDue">0</b><span>今天待复习</span></div>
+      <div class="mistake-stat"><b id="mistakeNew">0</b><span>待订正</span></div>
+      <div class="mistake-stat"><b id="mistakeLearning">0</b><span>复习中</span></div>
+      <div class="mistake-stat"><b id="mistakeMastered">0</b><span>已掌握</span></div>
+    </div>
+    <div class="mistake-layout">
+      <div class="card mistake-form">
+        <h3>收录一道错题</h3>
+        <label>科目<select id="mistakeSubject"><option>Math</option><option>English</option><option>Science</option><option>Chinese</option><option>Other</option></select></label>
+        <label>知识点或来源<input id="mistakeTopic" placeholder="例如：Fractions / Science Chapter 2"></label>
+        <label>我错在哪里？<textarea id="mistakeQuestion" rows="3" placeholder="可以输入题目摘要，或只上传照片"></textarea></label>
+        <label>错误原因<select id="mistakeReason"><option value="不会知识点">不会知识点</option><option value="看错题目">看错题目</option><option value="计算错误">计算错误</option><option value="表达不完整">表达不完整</option><option value="方法选择错误">方法选择错误</option><option value="粗心太快">粗心太快</option></select></label>
+        <label>正确方法或提醒<textarea id="mistakeCorrection" rows="3" placeholder="写一句正确规则、步骤或下次提醒"></textarea></label>
+        <label>题目照片（可选）<input id="mistakePhoto" type="file" accept="image/*" capture="environment"></label>
+        <div id="mistakePhotoPreview" class="small"></div>
+        <div class="ocr-panel">
+          <div class="item-top"><b>图片智能分析</b><button class="btn" type="button" onclick="analyzeMistakePhoto()">重新识别</button></div>
+          <div id="mistakeOcrStatus" class="ocr-status">上传照片后会自动尝试提取文字并给出题型、知识点和错误类型建议。</div>
+          <label>提取文字<textarea id="mistakeExtractedText" rows="4" placeholder="识别出的题目文字会显示在这里，也可以手动修改"></textarea></label>
+          <label>题目摘要<textarea id="mistakeSummary" rows="2" placeholder="系统自动生成的简短摘要"></textarea></label>
+          <div id="mistakeAnalysisChips" class="analysis-chips"></div>
+        </div>
+        <button class="btn primary" style="width:100%;margin-top:10px" onclick="addMistake()">保存到错题实验室</button>
+        <p class="small">照片会压缩后保存在当前浏览器，也会包含在 JSON/Drive 同步数据中。</p>
+      </div>
+      <div>
+        <div class="card"><div class="item-top"><div><h3 style="margin:0">今日复习队列</h3><div class="small">建议先完成到期错题，每天不需要一次复习太多。</div></div><select id="mistakeFilter" style="width:auto" onchange="renderMistakes()"><option value="due">今天待复习</option><option value="all">全部</option><option value="new">待订正</option><option value="learning">复习中</option><option value="mastered">已掌握</option></select></div></div>
+        <div id="mistakeList"></div>
+      </div>
     </div>
   </section>
 
@@ -1314,6 +1363,13 @@ h1{font-size:44px}
     <div class="grid2">
       <div class="card">
         <h3>基本设置</h3>
+        <div class="settings-profile-row">
+          <button class="settings-avatar-button" type="button" onclick="chooseProfileAvatar()" aria-label="更换头像">
+            <img id="settingsAvatarPreview" src="assets/leo_brand_full.png" alt="个人头像">
+            <span>更换头像</span>
+          </button>
+          <div class="settings-profile-copy"><b>个人头像</b><p class="small">头像只在设置页管理，不再占用左侧导航空间。</p></div>
+        </div>
         <div class="form-grid">
           <div><label>网站名称</label><input id="siteTitle" placeholder="晞白的学习世界"></div>
           <div><label>本周计划标题</label><input id="plannerTitle" placeholder="例如：22–26 Jul 学习计划"></div>
@@ -1422,7 +1478,7 @@ h1{font-size:44px}
     <div class="modal-head"><h3 id="slotModalTitle">编辑学习项目</h3><button class="icon-btn" onclick="closeSlotModal()"><svg class="ui-icon sm"><use href="#ico-close"></use></svg></button></div>
     <input id="slotId" type="hidden">
     <div class="form-grid">
-      <div><label>星期</label><select id="slotDay"><option>周一</option><option>周二</option><option>周三</option><option>周四</option><option>周五</option><option>周六</option><option>周日</option></select></div>
+      <div class="slot-days-field"><label>星期（可多选）</label><div id="slotDays" class="day-checkbox-grid"><label class="day-check"><input type="checkbox" value="周一"><span>周一</span></label><label class="day-check"><input type="checkbox" value="周二"><span>周二</span></label><label class="day-check"><input type="checkbox" value="周三"><span>周三</span></label><label class="day-check"><input type="checkbox" value="周四"><span>周四</span></label><label class="day-check"><input type="checkbox" value="周五"><span>周五</span></label><label class="day-check"><input type="checkbox" value="周六"><span>周六</span></label><label class="day-check"><input type="checkbox" value="周日"><span>周日</span></label></div><div id="slotDayEditHint" class="small">新增学习项可以同时加入多个星期。</div></div>
       <div><label>类型</label><select id="slotType"><option value="study">学习</option><option value="course">教材 / 练习</option><option value="rest">休息</option><option value="outdoor">户外/活动</option><option value="life">生活</option></select></div>
       <div><label>开始时间</label><input id="slotStart" type="time"></div>
       <div><label>结束时间</label><input id="slotEnd" type="time"></div>
@@ -1531,6 +1587,34 @@ h1{font-size:44px}
   </div>
 </div>
 
+<div id="examModal" class="modal" onclick="if(event.target===this) closeExamModal()">
+  <div class="modal-card">
+    <div class="modal-head"><div><h3>增加挑战项目</h3><p class="small">填写考试、比赛或重要活动信息。</p></div><button class="icon-btn" onclick="closeExamModal()"><svg class="ui-icon sm"><use href="#ico-close"></use></svg></button></div>
+    <label>名称</label><input id="examName" placeholder="例如：Science Term Test">
+    <div class="form-grid">
+      <div><label>科目</label><select id="examSubject"><option>Math</option><option>Science</option><option>English</option><option>Chinese</option><option>Piano</option><option>Other</option></select></div>
+      <div><label>日期</label><input id="examDate" type="date"></div>
+    </div>
+    <label>范围或准备内容</label><textarea id="examScope" rows="4" placeholder="例如：Units 5–7；复习实验题与关键词"></textarea>
+    <div class="toolbar"><button class="btn primary" onclick="addExam()">保存挑战项目</button><button class="btn" onclick="closeExamModal()">取消</button></div>
+  </div>
+</div>
+
+<div id="curriculumBookModal" class="modal">
+  <div class="modal-card">
+    <div class="modal-head"><div><h3>添加教材</h3><p class="small">填写教材资料后，它会出现在森林书架上。</p></div><button class="icon-btn" onclick="closeCurriculumBookModal()"><svg class="ui-icon sm"><use href="#ico-close"></use></svg></button></div>
+    <div class="form-grid">
+      <div><label>教材名称</label><input id="bookName" placeholder="例如：Wordly Wise 3000"></div>
+      <div><label>科目</label><select id="bookSubject"><option>English</option><option>Chinese</option><option>Science</option><option>Math</option><option>Piano</option></select></div>
+      <div><label>类型</label><select id="bookType"><option>Vocabulary</option><option>Novel</option><option>Reading Comprehension</option><option>Writing</option><option>Grammar</option><option>Practice</option></select></div>
+      <div><label>单元名称</label><input id="bookUnitLabel" value="Unit"></div>
+      <div><label>当前进度</label><input id="bookCurrent" type="number" min="0" value="0"></div>
+      <div><label>总章节</label><input id="bookTotal" type="number" min="1" value="20"></div>
+    </div>
+    <div class="toolbar"><button class="btn primary" onclick="addBook()">添加到书架</button><button class="btn" onclick="closeCurriculumBookModal()">取消</button></div>
+  </div>
+</div>
+
 <div id="resetModal" class="modal">
   <div class="modal-card">
     <div class="modal-head"><h3>重置本周计划</h3><button class="icon-btn" onclick="closeResetModal()"><svg class="ui-icon sm"><use href="#ico-close"></use></svg></button></div>
@@ -1561,6 +1645,14 @@ h1{font-size:44px}
   </div>
 </div>
 
+
+<div id="correctionModal" class="modal" onclick="if(event.target===this) closeCorrectionWorkspace()">
+  <div class="modal-card correction-modal-card" role="dialog" aria-modal="true" aria-label="错题订正工作台">
+    <div class="modal-head"><div><h3>错题订正工作台</h3><p class="small">看题、重新作答、写出正确方法，再提交订正。</p></div><button class="icon-btn" onclick="closeCorrectionWorkspace()"><svg class="ui-icon sm"><use href="#ico-close"></use></svg></button></div>
+    <div id="correctionWorkspaceBody"></div>
+  </div>
+</div>
+
 <script>
 const uiIcon=(id,cls="")=>`<svg class="ui-icon ${cls}" aria-hidden="true"><use href="#${id}"></use></svg>`;
 const KEY="little-explorer-learning-world-v14-1-stable",LEGACY_KEY="little-explorer-planner-v7",DAYS=["周一","周二","周三","周四","周五","周六","周日"];
@@ -1569,7 +1661,7 @@ settings:{siteTitle:"晞白的学习世界",plannerTitle:"本周学习计划",st
 week:[
 {id:1,day:"周一",start:"13:30",end:"14:00",title:"放学回家、整理书包",type:"rest",notes:"",done:false},
 {id:2,day:"周一",start:"14:00",end:"14:30",title:"午餐",type:"course",notes:"",done:false},
-{id:3,day:"周一",start:"14:30",end:"15:10",title:"单词ly Wise Unit 13",type:"study",notes:"",done:false},
+{id:3,day:"周一",start:"14:30",end:"15:10",title:"Wordly Wise Unit 13",type:"study",notes:"",done:false},
 {id:4,day:"周一",start:"15:10",end:"15:30",title:"休息 20 分钟",type:"rest",notes:"",done:false},
 {id:5,day:"周一",start:"15:30",end:"16:10",title:"Science Notes: 章节 1",type:"study",notes:"",done:false},
 {id:6,day:"周一",start:"16:10",end:"16:30",title:"休息 20 分钟",type:"rest",notes:"",done:false},
@@ -1588,7 +1680,7 @@ week:[
 {id:19,day:"周二",start:"19:30",end:"20:00",title:"Science Notes: 章节 2",type:"study",notes:"",done:false},
 {id:20,day:"周三",start:"13:30",end:"14:00",title:"放学回家、整理书包",type:"rest",notes:"",done:false},
 {id:21,day:"周三",start:"14:00",end:"14:30",title:"午餐",type:"course",notes:"",done:false},
-{id:22,day:"周三",start:"14:30",end:"15:10",title:"单词ly Wise Unit 14",type:"study",notes:"",done:false},
+{id:22,day:"周三",start:"14:30",end:"15:10",title:"Wordly Wise Unit 14",type:"study",notes:"",done:false},
 {id:23,day:"周三",start:"15:00",end:"16:30",title:"Wonderlit Speak",type:"course",notes:"",done:false},
 {id:24,day:"周三",start:"16:30",end:"17:10",title:"Reading 步步高 Exercise 10",type:"study",notes:"",done:false},
 {id:25,day:"周三",start:"17:30",end:"19:00",title:"户外活动",type:"outdoor",notes:"",done:false},
@@ -1596,7 +1688,7 @@ week:[
 {id:27,day:"周四",start:"16:10",end:"16:50",title:"Grammar Workbook",type:"study",notes:"",done:false},
 {id:28,day:"周四",start:"16:50",end:"17:10",title:"休息 20 分钟",type:"rest",notes:"",done:false},
 {id:29,day:"周四",start:"17:30",end:"19:00",title:"户外活动",type:"outdoor",notes:"",done:false},
-{id:30,day:"周五",start:"14:30",end:"15:10",title:"单词ly Wise Unit 15",type:"study",notes:"",done:false},
+{id:30,day:"周五",start:"14:30",end:"15:10",title:"Wordly Wise Unit 15",type:"study",notes:"",done:false},
 {id:31,day:"周五",start:"15:30",end:"16:10",title:"Reading 步步高 Exercise 11",type:"study",notes:"",done:false},
 {id:32,day:"周五",start:"16:30",end:"17:10",title:"Chinese composition",type:"study",notes:"",done:false},
 {id:33,day:"周五",start:"17:30",end:"19:00",title:"户外活动",type:"outdoor",notes:"",done:false},
@@ -1608,14 +1700,15 @@ week:[
 {id:39,day:"周日",start:"17:30",end:"19:00",title:"户外活动",type:"outdoor",notes:"",done:false}
 ],
 tasks:[],curriculum:[
-{id:1,name:"单词ly Wise",subject:"English",type:"Vocabulary",current:12,total:20,unitLabel:"Unit"},
+{id:1,name:"Wordly Wise",subject:"English",type:"Vocabulary",current:12,total:20,unitLabel:"Unit"},
 {id:2,name:"Wonder",subject:"English",type:"Novel",current:3,total:20,unitLabel:"章节"},
 {id:3,name:"Reading理解步步高",subject:"English",type:"Reading Comprehension",current:0,total:24,unitLabel:"Exercise"},
 {id:4,name:"学习中+ English Write On Track",subject:"English",type:"Writing",current:0,total:12,unitLabel:"Unit"},
 {id:5,name:"Grammar Workbook",subject:"English",type:"Grammar",current:0,total:20,unitLabel:"Unit"},
 {id:6,name:"Science Notes",subject:"Science",type:"Practice",current:0,total:3,unitLabel:"章节"}
 ],reading:[],
-wonderParts:[{"part":"Part One — August","count":31},{"part":"Part Two — Via","count":16},{"part":"Part Three — Summer","count":6},{"part":"Part Four — Jack","count":20},{"part":"Part Five — Justin","count":8},{"part":"Part Six — August","count":11},{"part":"Part Seven — Miranda","count":6},{"part":"Part Eight — August","count":23}],wonderTitles:[],novelBooks:[{id:201,title:"Wonder",author:"R. J. Palacio",current:0,total:121,status:"reading"}],chapters:[{id:301,book:"Wonder",name:"Chapter 1",date:"2026-07-20",minutes:40,goal:"认识主要人物和故事背景",predict:"",evidence:"",summary:"",reflection:"",done:false}],vocab:[{id:401,word:"ordinary",definition:"normal or usual; not different or special",partOfSpeech:"adjective",synonyms:"normal, usual, common",example:"I know I am not an ordinary ten-year-old kid.",ownSentence:"It looked like an ordinary school day.",source:"Wonder Chapter 1",status:"learning"}],exams:[
+wonderParts:[{"part":"Part One — August","count":31},{"part":"Part Two — Via","count":16},{"part":"Part Three — Summer","count":6},{"part":"Part Four — Jack","count":20},{"part":"Part Five — Justin","count":8},{"part":"Part Six — August","count":11},{"part":"Part Seven — Miranda","count":6},{"part":"Part Eight — August","count":23}],wonderTitles:[],novelBooks:[{id:201,title:"Wonder",author:"R. J. Palacio",current:0,total:121,status:"reading"}],chapters:[{id:301,book:"Wonder",name:"Chapter 1",date:"2026-07-20",minutes:40,goal:"认识主要人物和故事背景",predict:"",evidence:"",summary:"",reflection:"",done:false}],rewards:{points:0,ledger:[],activityDates:[]},mistakes:[],
+vocab:[{id:401,word:"ordinary",definition:"normal or usual; not different or special",partOfSpeech:"adjective",synonyms:"normal, usual, common",example:"I know I am not an ordinary ten-year-old kid.",ownSentence:"It looked like an ordinary school day.",source:"Wonder Chapter 1",status:"learning"}],exams:[
 {id:101,name:"TASMO 2026",subject:"Math",date:"2026-08-10",scope:""},
 {id:102,name:"科学 WA3",subject:"Science",date:"2026-08-14",scope:"CHAPTER 1-3"},
 {id:103,name:"NAFA MASTER CLASS 1",subject:"Other",date:"2026-08-15",scope:"巴赫 INVENTIO 14，车尔尼 849 -12"},
@@ -1625,35 +1718,48 @@ wonderParts:[{"part":"Part One — August","count":31},{"part":"Part Two — Via
 ]};
 let data=load();
 function clone(x){return JSON.parse(JSON.stringify(x))}
-function load(){try{const raw=localStorage.getItem(KEY)||localStorage.getItem(LEGACY_KEY);const x=JSON.parse(raw||"null");if(!x)return clone(defaults);const merged={...clone(defaults),...x,settings:{...defaults.settings,...(x.settings||{})}};merged.week=(merged.week||[]).map(s=>({...s,done:!!s.done}));return merged}catch(e){return clone(defaults)}}
+function load(){try{const raw=localStorage.getItem(KEY)||localStorage.getItem(LEGACY_KEY);const x=JSON.parse(raw||"null");if(!x)return clone(defaults);const merged={...clone(defaults),...x,settings:{...defaults.settings,...(x.settings||{})},rewards:{...defaults.rewards,...(x.rewards||{})}};merged.week=(merged.week||[]).map(s=>({...s,done:!!s.done}));merged.mistakes=merged.mistakes||[];merged.rewards.ledger=merged.rewards.ledger||[];merged.rewards.activityDates=merged.rewards.activityDates||[];return merged}catch(e){return clone(defaults)}}
 function saveData(show=false){localStorage.setItem(KEY,JSON.stringify(data));if(show)alert("已保存到当前浏览器。")}
 function $(id){return document.getElementById(id)}
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
 
 const PAGE_LABELS={
-  home:"首页",week:"周计划",novel:"小说精读",curriculum:"教材架",
+  home:"首页",week:"周计划",novel:"阅读旅程",curriculum:"教材架",
   tasks:"任务",exams:"考试",piano:"钢琴练习",science:"科学复习",
-  growth:"成长花园",settings:"设置"
+  growth:"成长花园",mistakes:"错题实验室",settings:"设置"
 };
 
 function localISODate(date=new Date()){const y=date.getFullYear(),m=String(date.getMonth()+1).padStart(2,"0"),d=String(date.getDate()).padStart(2,"0");return `${y}-${m}-${d}`}
 function formatJournalDate(value){if(!value)return localISODate();const d=new Date(value+"T12:00:00");return d.toLocaleDateString("en-SG",{day:"numeric",month:"short",year:"numeric"})}
-function openAdventureMap(){showPage("novel");setTimeout(()=>{const el=document.getElementById("adventureMapSection");if(!el)return;el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("map-flash");void el.offsetWidth;el.classList.add("map-flash")},180)}
+function openAdventureMap(){showPage("novel");activateNovelTab("chapters");setTimeout(()=>{const el=document.getElementById("adventureMapSection");if(!el)return;el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("map-flash");void el.offsetWidth;el.classList.add("map-flash")},180)}
 function showPage(id){
   if(id==="dashboard") id="home";
   document.querySelectorAll(".page").forEach(x=>x.classList.toggle("active",x.id===id));
   document.querySelectorAll("[data-page]").forEach(x=>x.classList.toggle("active",x.dataset.page===id));
   document.body.classList.toggle("home-mode",id==="home");
+  document.body.classList.toggle("week-mode",id==="week");
   if(id==="home")renderDashboard();
   if(id==="stats")renderStats();
+  if(id==="mistakes")renderMistakes();
+  if(id==="novel"){let saved="chapters";try{saved=localStorage.getItem("lew_novel_tab")||"chapters"}catch(e){}activateNovelTab(saved)}
   window.scrollTo({top:0,behavior:"smooth"});
 }
+function activateNovelTab(name,scroll=false){
+  const valid=["chapters","vocab","quotes","imitation"];
+  if(!valid.includes(name))name="chapters";
+  document.querySelectorAll("[data-novel-tab]").forEach(btn=>btn.classList.toggle("active",btn.dataset.novelTab===name));
+  document.querySelectorAll("[data-novel-panel]").forEach(panel=>panel.classList.toggle("active",panel.dataset.novelPanel===name));
+  try{localStorage.setItem("lew_novel_tab",name)}catch(e){}
+  if(scroll){const tabs=document.querySelector(".novel-tabs");if(tabs)tabs.scrollIntoView({behavior:"smooth",block:"start"})}
+}
+function novelTabForTarget(targetId){return targetId==="vocabBank"?"vocab":targetId==="sentenceBank"?"quotes":targetId==="imitationBank"?"imitation":"chapters"}
 function scrollToPageSection(pageId,targetId){
   showPage(pageId);
   if(!targetId)return;
   setTimeout(()=>{
     const target=document.getElementById(targetId);
     if(!target)return;
+    if(pageId==="novel")activateNovelTab(novelTabForTarget(targetId));
     target.scrollIntoView({behavior:"smooth",block:"start"});
     target.classList.remove("section-flash");
     void target.offsetWidth;
@@ -1671,12 +1777,10 @@ function slotIcon(type){
   return `<svg><use href="#${id}"></use></svg>`;
 }
 function toggleSlotDone(id,value,event){
-  const s=data.week.find(x=>x.id===id);
-  if(!s)return;
-  s.done=value;
-  saveData();
-  if(value)showStar(event);
-  renderAll();
+  const slot=data.week.find(x=>x.id===id);if(!slot)return;
+  const was=!!slot.done;slot.done=!!value;
+  if(value&&!was&&!["rest","course"].includes(slot.type))awardPoints(5,`week:${id}`,`完成：${slot.title}`);
+  saveData();renderAll();if(value)showStarBurst();
 }
 function showStar(event){
   const star=document.createElement("div");
@@ -1709,11 +1813,15 @@ function renderWeek(){
   }).join("");
   enableDrag();
 }
+function getSelectedSlotDays(){return [...document.querySelectorAll('#slotDays input:checked')].map(x=>x.value)}
+function setSelectedSlotDays(days){document.querySelectorAll('#slotDays input').forEach(x=>x.checked=days.includes(x.value))}
 function openSlotModal(id=null,day="周一"){
   const s=id?data.week.find(x=>x.id===id):null;
   $("slotModalTitle").textContent=s?"编辑学习项目":"新增学习项目";
   $("slotId").value=s?.id||"";
-  $("slotDay").value=s?.day||day;
+  setSelectedSlotDays([s?.day||day]);
+  document.querySelectorAll('#slotDays input').forEach(x=>x.disabled=!!s&&x.value!==s.day);
+  $("slotDayEditHint").textContent=s?"编辑现有项目时只修改当前星期；需要复制到其他星期，可使用复制功能。":"新增学习项可以同时加入多个星期。";
   $("slotType").value=s?.type||"study";
   $("slotStart").value=s?.start||"14:30";
   $("slotEnd").value=s?.end||"15:10";
@@ -1723,13 +1831,22 @@ function openSlotModal(id=null,day="周一"){
 }
 function closeSlotModal(){$("slotModal").classList.remove("show")}
 function saveSlot(){
-  const id=Number($("slotId").value)||Date.now();
-  const obj={id,day:$("slotDay").value,type:$("slotType").value,start:$("slotStart").value,end:$("slotEnd").value,title:$("slotTitle").value.trim(),notes:$("slotNotes").value.trim(),done:(data.week.find(x=>x.id===id)?.done||false)};
-  if(!obj.title)return alert("请输入任务内容");
-  const i=data.week.findIndex(x=>x.id===id);if(i>=0)data.week[i]=obj;else data.week.push(obj);
+  const existingId=Number($("slotId").value)||0;
+  const days=getSelectedSlotDays();
+  const title=$("slotTitle").value.trim();
+  if(!title)return alert("请输入任务内容");
+  if(!days.length)return alert("请至少选择一个星期");
+  const base={type:$("slotType").value,start:$("slotStart").value,end:$("slotEnd").value,title,notes:$("slotNotes").value.trim()};
+  if(existingId){
+    const i=data.week.findIndex(x=>x.id===existingId);
+    if(i>=0)data.week[i]={...data.week[i],...base,day:days[0]};
+  }else{
+    const seed=Date.now();
+    days.forEach((day,index)=>data.week.push({...base,id:seed+index,day,done:false}));
+  }
   saveData();closeSlotModal();renderAll();
 }
-function toggleSlotDone(id,value){const s=data.week.find(x=>x.id===id);if(!s)return;s.done=value;saveData();renderAll();if(value)showStarBurst()}
+
 function showStarBurst(){const el=document.createElement("div");el.textContent=" +1";el.style.cssText="position:fixed;left:50%;top:42%;z-index:999;font-size:34px;font-weight:900;pointer-events:none;animation:starPop .8s ease forwards";document.body.appendChild(el);setTimeout(()=>el.remove(),850)}
 function duplicateSlot(id){
   const source=data.week.find(x=>x.id===id);if(!source)return;
@@ -1802,7 +1919,7 @@ function applyResetWeek(){
   saveData();closeResetModal();renderAll();
 }
 
-function batch编辑Week(){
+function batchEditWeek(){
   $("genericTitle").textContent="批量编辑本周";
   $("genericBody").innerHTML=`<p class="small">可直接修改 JSON。适合一次调整多个项目。</p><textarea id="batchJson" rows="18">${esc(JSON.stringify(data.week,null,2))}</textarea><div class="toolbar"><button class="btn primary" onclick="saveBatchWeek()">保存本周</button><button class="btn" onclick="closeGeneric()">取消</button></div>`;
   $("genericModal").classList.add("show");
@@ -1827,16 +1944,23 @@ function generateWeek(){
 }
 function addTask(){const name=$("taskName").value.trim();if(!name)return alert("请输入任务名称");data.tasks.push({id:Date.now(),name,subject:$("taskSubject").value,duration:Number($("taskDuration").value)||40,priority:Number($("taskPriority").value),deadline:$("taskDeadline").value,done:false});$("taskName").value="";saveData();renderAll()}
 function renderTasks(){$("taskList").innerHTML=data.tasks.length?data.tasks.map(t=>`<div class="item-row"><div class="item-top"><div><b>${esc(t.name)}</b><div class="small">${esc(t.subject)} · ${t.duration} 分钟 · ${t.deadline}</div></div><input style="width:auto" type="checkbox" ${t.done?"checked":""} onchange="toggleTask(${t.id},this.checked)"></div><div class="toolbar"><button class="btn" onclick="editTask(${t.id})">编辑</button><button class="btn" onclick="deleteTask(${t.id})">删除</button></div></div>`).join(""):'<div class="small">暂无任务</div>'}
-function toggleTask(id,v){const t=data.tasks.find(x=>x.id===id);if(t)t.done=v;saveData();renderAll()}
+function toggleTask(id,v){const t=data.tasks.find(x=>x.id===id);if(!t)return;const was=!!t.done;t.done=v;if(v&&!was)awardPoints(5,`task:${id}`,`完成任务：${t.name}`);saveData();renderAll()}
 function editTask(id){const t=data.tasks.find(x=>x.id===id);if(!t)return;const name=prompt("任务名称",t.name);if(name===null)return;const duration=prompt("时长",t.duration);if(duration===null)return;t.name=name;t.duration=Number(duration)||t.duration;saveData();renderAll()}
 function deleteTask(id){data.tasks=data.tasks.filter(x=>x.id!==id);saveData();renderAll()}
-function addBook(){const name=$("bookName").value.trim();if(!name)return alert("请输入教材名称");data.curriculum.push({id:Date.now(),name,subject:$("bookSubject").value,type:$("bookType").value,unitLabel:$("bookUnitLabel").value,current:Number($("bookCurrent").value)||0,total:Number($("bookTotal").value)||1});$("bookName").value="";saveData();renderAll()}
-function renderCurriculum(){$("curriculumList").innerHTML=data.curriculum.map(b=>`<div class="item-row"><div class="item-top"><div><b>${esc(b.name)}</b><div class="small">${b.subject} · ${b.type} · ${b.unitLabel} ${b.current}/${b.total}</div></div><b>${Math.round(b.current/b.total*100)}%</b></div><div class="toolbar"><button class="btn" onclick="advanceBook(${b.id})">完成下一单元</button><button class="btn" onclick="editBook(${b.id})">编辑</button><button class="btn" onclick="deleteBook(${b.id})">删除</button></div></div>`).join("")}
+function openCurriculumBookModal(){
+  $("bookName").value="";$("bookSubject").value="English";$("bookType").value="Vocabulary";$("bookUnitLabel").value="Unit";$("bookCurrent").value=0;$("bookTotal").value=20;
+  $("curriculumBookModal").classList.add("show");
+}
+function closeCurriculumBookModal(){$("curriculumBookModal").classList.remove("show")}
+function addBook(){const name=$("bookName").value.trim();if(!name)return alert("请输入教材名称");data.curriculum.push({id:Date.now(),name,subject:$("bookSubject").value,type:$("bookType").value,unitLabel:$("bookUnitLabel").value,current:Number($("bookCurrent").value)||0,total:Number($("bookTotal").value)||1});$("bookName").value="";closeCurriculumBookModal();saveData();renderAll()}
+function renderCurriculum(){const el=$("curriculumList");if(!el)return;el.innerHTML=data.curriculum.length?data.curriculum.map(b=>{const p=Math.min(100,Math.round((b.current||0)/(b.total||1)*100));return `<article class="curriculum-book"><div><div class="book-meta">${esc(b.subject)} · ${esc(b.type)}</div><h3>${esc(b.name)}</h3><div class="book-meta">${esc(b.unitLabel||"Chapter")} ${b.current}/${b.total}</div></div><div><div class="book-progress progress-with-label"><span style="width:${p}%"></span><b>${p}%</b></div><div class="toolbar"><button class="btn" onclick="advanceBook(${b.id})">下一章节</button><button class="btn" onclick="editBook(${b.id})">编辑</button><button class="btn" onclick="deleteBook(${b.id})">删除</button></div></div></article>`}).join(""):'<div class="small" style="grid-column:1/-1;text-align:center;padding:70px 20px;color:#6f604e">书架还是空的。点击“添加教材”放入第一本书吧。</div>'}
 function advanceBook(id){const b=data.curriculum.find(x=>x.id===id);if(b&&b.current<b.total)b.current++;saveData();renderAll()}
-function editBook(id){const b=data.curriculum.find(x=>x.id===id);if(!b)return;const name=prompt("教材名称",b.name);if(name===null)return;const current=prompt("当前进度",b.current);if(current===null)return;b.name=name;b.current=Number(current)||0;saveData();renderAll()}
+function editBook(id){const b=data.curriculum.find(x=>x.id===id);if(!b)return;const name=prompt("教材名称",b.name);if(name===null)return;const current=prompt("当前进度",b.current);if(current===null)return;const total=prompt("总章节",b.total);if(total===null)return;const totalValue=Math.max(1,Number(total)||1);b.name=name.trim()||b.name;b.total=totalValue;b.current=Math.max(0,Math.min(Number(current)||0,totalValue));saveData();renderAll()}
 function deleteBook(id){data.curriculum=data.curriculum.filter(x=>x.id!==id);saveData();renderAll()}
-function addExam(){const name=$("examName").value.trim(),date=$("examDate").value;if(!name||!date)return alert("请输入名称和日期");data.exams.push({id:Date.now(),name,subject:$("examSubject").value,date,scope:$("examScope").value});saveData();renderAll()}
-function renderExams(){$("examList").innerHTML=[...data.exams].sort((a,b)=>a.date.localeCompare(b.date)).map(e=>`<div class="item-row"><div class="item-top"><div><b>${esc(e.name)}</b><div class="small">${e.subject} · ${e.date}${e.scope?" · "+esc(e.scope):""}</div></div><b>${daysUntil(e.date)>=0?daysUntil(e.date)+" 天":"已结束"}</b></div><div class="toolbar"><button class="btn" onclick="editExam(${e.id})">编辑</button><button class="btn" onclick="deleteExam(${e.id})">删除</button></div></div>`).join("")}
+function openExamModal(){["examName","examDate","examScope"].forEach(id=>{if($(id))$(id).value=""});if($("examSubject"))$("examSubject").value="Math";$("examModal").classList.add("show")}
+function closeExamModal(){$("examModal").classList.remove("show")}
+function addExam(){const name=$("examName").value.trim(),date=$("examDate").value;if(!name||!date)return alert("请输入名称和日期");data.exams.push({id:Date.now(),name,subject:$("examSubject").value,date,scope:$("examScope").value.trim()});closeExamModal();saveData();renderAll()}
+function renderExams(){const items=[...data.exams].sort((a,b)=>a.date.localeCompare(b.date));const upcoming=items.filter(e=>daysUntil(e.date)>=0);if($("examSummary")){const next=upcoming[0];$("examSummary").innerHTML=`<div><b>${upcoming.length}</b><span>即将到来</span></div><div><b>${next?daysUntil(next.date):0}</b><span>距离最近项目</span></div><div><b>${items.filter(e=>daysUntil(e.date)<0).length}</b><span>已经结束</span></div>`}$("examList").innerHTML=items.length?items.map(e=>{const d=new Date(e.date+"T00:00:00"),days=daysUntil(e.date);return `<article class="challenge-card"><div class="challenge-date"><span>${d.getMonth()+1}月</span><b>${String(d.getDate()).padStart(2,"0")}</b><small>${["周日","周一","周二","周三","周四","周五","周六"][d.getDay()]}</small></div><div class="challenge-main"><div class="challenge-topline"><span class="challenge-subject">${esc(e.subject)}</span><strong class="${days<0?'ended':''}">${days<0?'已结束':days===0?'今天':`还有 ${days} 天`}</strong></div><h4>${esc(e.name)}</h4>${e.scope?`<p>${esc(e.scope)}</p>`:''}<div class="challenge-actions"><button class="btn" onclick="editExam(${e.id})">编辑</button><button class="btn" onclick="deleteExam(${e.id})">删除</button></div></div></article>`}).join(""):'<div class="empty-state">暂时没有挑战项目。点击上方按钮添加。</div>'}
 function editExam(id){const e=data.exams.find(x=>x.id===id);if(!e)return;const n=prompt("名称",e.name);if(n===null)return;const d=prompt("日期 YYYY-MM-DD",e.date);if(d===null)return;const s=prompt("范围",e.scope||"");if(s===null)return;e.name=n;e.date=d;e.scope=s;saveData();renderAll()}
 function deleteExam(id){data.exams=data.exams.filter(x=>x.id!==id);saveData();renderAll()}
 function bar(el,obj,suffix=""){const arr=Object.entries(obj),mx=Math.max(1,...arr.map(x=>x[1]));el.innerHTML=arr.map(([k,v])=>`<div class="bar-row"><div>${esc(k)}</div><div class="bar-track"><div class="bar-fill" style="width:${v/mx*100}%"></div></div><div>${v}${suffix}</div></div>`).join("")}
@@ -1924,6 +2048,25 @@ function resetWonderStructure(){
   if(!confirm("恢复为 Chapter 1、Chapter 2 等编号？"))return;
   data.wonderTitles=[];
   saveData();renderWonderToc();
+}
+
+function chooseProfileAvatar(){const input=$("profileAvatarInput");if(input){input.value="";input.click();}}
+function handleProfileAvatar(event){
+  const file=event.target.files&&event.target.files[0];if(!file)return;
+  if(!file.type.startsWith("image/"))return alert("请选择图片文件");
+  const reader=new FileReader();
+  reader.onload=()=>{
+    const img=new Image();
+    img.onload=()=>{
+      const size=360,canvas=document.createElement("canvas");canvas.width=size;canvas.height=size;
+      const ctx=canvas.getContext("2d"),scale=Math.max(size/img.width,size/img.height);
+      const w=img.width*scale,h=img.height*scale;ctx.drawImage(img,(size-w)/2,(size-h)/2,w,h);
+      data.settings=data.settings||{};data.settings.profileAvatar=canvas.toDataURL("image/jpeg",.86);
+      saveData();renderDashboard();
+    };
+    img.onerror=()=>alert("图片读取失败，请换一张图片重试");img.src=reader.result;
+  };
+  reader.readAsDataURL(file);
 }
 
 function renderProgress(){const weekTotal=data.week.length,weekDone=data.week.filter(x=>x.done).length,taskTotal=data.tasks.length,taskDone=data.tasks.filter(x=>x.done).length,total=weekTotal+taskTotal,done=weekDone+taskDone,p=total?Math.round(done/total*100):0;$("progressText").textContent=`${done} / ${total} 已完成`;$("progressPct").textContent=p+"%";$("progressFill").style.width=p+"%"}
@@ -2229,7 +2372,7 @@ function installDictionaryControls(){
   for(let i=1;i<=3;i++){
     const input=$(`chapterWord${i}`);if(!input||input.dataset.dictionaryReady)continue;input.dataset.dictionaryReady='1';
     const parent=input.parentElement;const line=document.createElement('div');line.className='dictionary-word-line';parent.insertBefore(line,input);line.appendChild(input);
-    const button=document.createElement('button');button.type='button';button.className='btn dictionary-lookup-btn';button.id=`chapterWordLookupBtn${i}`;button.textContent='<svg class="ui-icon sm"><use href="#ico-search"></use></svg> 自动查询';button.onclick=()=>lookupChapterWord(i);line.appendChild(button);
+    const button=document.createElement('button');button.type='button';button.className='btn dictionary-lookup-btn';button.id=`chapterWordLookupBtn${i}`;button.innerHTML='<svg class="ui-icon sm"><use href="#ico-search"></use></svg> 自动查询';button.onclick=()=>lookupChapterWord(i);line.appendChild(button);
     const status=document.createElement('div');status.id=`chapterWordLookupStatus${i}`;status.className='dictionary-status';status.textContent='输入单词后可自动填入英文释义。';parent.appendChild(status);
     input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();lookupChapterWord(i)}});
   }
@@ -2246,7 +2389,7 @@ const LEO_MESSAGES=[
 function wordCount(text){return (String(text||'').trim().match(/[A-Za-z']+/g)||[]).length}
 function sentenceCount(text){return (String(text||'').trim().match(/[.!?]+/g)||[]).length || (String(text||'').trim()?1:0)}
 function clampScore(n){return Math.max(0,Math.min(100,Math.round(n)))}
-function starsFor(score){const full=Math.max(1,Math.round(score/20));return '★'.repeat(full)+'☆'.repeat(5-full)}
+function starsFor(score){const full=Math.max(1,Math.round(score/20));return ''.repeat(full)+''.repeat(5-full)}
 function calculateCoachReport(c){
   const words=Array.isArray(c.words)?c.words:[];
   const completeWords=words.filter(w=>w.word&&w.definition);
@@ -2283,7 +2426,7 @@ function calculateCoachReport(c){
   if(thinking>=80)strengths.push('You supported your thought with a reason or evidence.'); else next.push('Add “because” and explain why you think this.');
   const badges=[];
   if(vocabulary>=85)badges.push('Word Master');
-  if(writing>=85)badges.push('️ Pattern Writer');
+  if(writing>=85)badges.push(' Pattern Writer');
   if(thinking>=85)badges.push('Deep Thinker');
   if(overall>=90)badges.push('Reading Hero');
   if(!badges.length)badges.push('Growing Reader');
@@ -2482,24 +2625,29 @@ function renderDashboard(){
   const thoughts=chapters.filter(c=>(c.reflection||c.oneThought||"").trim()).length;
   const todayIndex=(new Date().getDay()+6)%7, todayName=DAYS[todayIndex];
   const todayTasks=week.filter(t=>t.day===todayName).sort((a,b)=>a.start.localeCompare(b.start));
-  const todayDone=todayTasks.filter(t=>t.done).length;
+  const pendingTodayTasks=todayTasks.filter(t=>!t.done);
+  const todayDone=todayTasks.length-pendingTodayTasks.length;
   const todayPct=todayTasks.length?Math.round(todayDone/todayTasks.length*100):0;
   const weekDone=week.filter(t=>t.done).length;
   const weekPct=week.length?Math.round(weekDone/week.length*100):0;
   const name=data.settings?.studentName||"晞白";
   if($("dashboardStudentName"))$("dashboardStudentName").textContent=name;
+  if($("sidebarStudentName"))$("sidebarStudentName").textContent=name;
+  const profileAvatar=data.settings?.profileAvatar||"assets/leo_brand_full.png";
+  if($("sidebarAvatar"))$("sidebarAvatar").src=profileAvatar;
+  if($("settingsAvatarPreview"))$("settingsAvatarPreview").src=profileAvatar;
 
   if($("dashboardGoals"))$("dashboardGoals").innerHTML=[
-    ["▣","阅读章节",completedChapters?1:0,"1 章"],
-    ["Aa","学习词汇",Math.min(3,vocab.length),"3 个"],
-    ["★","收藏好句",savedSentences?1:0,"1 句"],
-    ["Edit","仿写练习",imitationCount?1:0,"1 句"],
-    ["◉","写下感想",thoughts?1:0,"1 句"]
-  ].map(x=>`<div class="goal-metric"><span class="goal-icon">${x[0]}</span><span>${x[1]}</span><b>${x[2]}</b><small>/ ${x[3]}</small></div>`).join("");
+    ["ico-reading","阅读章节",completedChapters?1:0,"1 章"],
+    ["ico-books","学习词汇",Math.min(3,vocab.length),"3 个"],
+    ["ico-heart","收藏好句",savedSentences?1:0,"1 句"],
+    ["ico-pencil","仿写练习",imitationCount?1:0,"1 句"],
+    ["ico-think","写下感想",thoughts?1:0,"1 句"]
+  ].map(x=>`<div class="goal-metric"><span class="goal-icon"><svg aria-hidden="true"><use href="#${x[0]}"></use></svg></span><span>${x[1]}</span><b>${x[2]}</b><small>/ ${x[3]}</small></div>`).join("");
   if($("dashboardComplete"))$("dashboardComplete").innerHTML=`<span class="cup-icon"></span><span>今日已完成</span><b>${todayPct}%</b><small>${todayPct===100?"太棒了！":"继续加油！"}</small>`;
 
-  if($("dashFocus"))$("dashFocus").innerHTML=todayTasks.length?todayTasks.slice(0,4).map((t,i)=>`<div class="board-task-row ${t.done?"is-done":""}"><span class="color-bar bar-${i%4}"></span><time>${t.start}</time><span class="task-symbol">${taskSymbol(t.title)}</span><div class="task-main"><b>${esc(t.title)}</b></div><span class="task-tag tag-${i%4}">${t.done?"完成":taskLabel(t.title)}</span></div>`).join(""):'<div class="empty-state">今天还没有安排任务。</div>';
-  if($("dashFocusSummary"))$("dashFocusSummary").textContent=`已完成 ${todayDone} / ${todayTasks.length} 项`;
+  if($("dashFocus"))$("dashFocus").innerHTML=pendingTodayTasks.length?pendingTodayTasks.slice(0,4).map((t,i)=>`<div class="board-task-row"><span class="color-bar bar-${i%4}"></span><time>${t.start}</time><span class="task-symbol">${taskSymbol(t.title)}</span><div class="task-main"><b>${esc(t.title)}</b></div><span class="task-tag tag-${i%4}">${taskLabel(t.title)}</span></div>`).join(""):(todayTasks.length?'<div class="empty-state">今天的任务已全部完成！</div>':'<div class="empty-state">今天还没有安排任务。</div>');
+  if($("dashFocusSummary")){const summary=$("dashFocusSummary");summary.textContent=pendingTodayTasks.length?`未完成 ${pendingTodayTasks.length} 项`:"";summary.style.display=pendingTodayTasks.length?"":"none";}
 
   if($("dashExams")){
     const upcoming=(data.exams||[]).map(e=>({...e,days:daysUntil(e.date)})).filter(e=>e.days>=0).sort((a,b)=>a.days-b.days).slice(0,3);
@@ -2511,17 +2659,17 @@ function renderDashboard(){
   const avgCoach=coachReports.length?Math.round(coachReports.reduce((n,r)=>n+(r.overall||0),0)/coachReports.length):0;
   if($("dashStats"))$("dashStats").innerHTML=`
     <div class="leo-dashboard-message"><b>Leo 今日寄语</b><br>${LEO_MESSAGES[new Date().getDate()%LEO_MESSAGES.length]}</div>
-    <div class="growth-row"><span></span><b>阅读教练评分</b><strong>${avgCoach||"—"}<small>${avgCoach?" 分":""}</small></strong></div>
-    <div class="growth-row"><span></span><b>Leo XP</b><strong>${data.coach.xp}<small> XP</small></strong></div>
-    <div class="growth-row"><span>Done</span><b>任务完成</b><strong>${weekDone}<small> / ${week.length} 项</small></strong></div>
-    <div class="growth-row"><span>▣</span><b>已完成章节</b><strong>${completedChapters}<small> 章</small></strong></div>
-    <div class="growth-row"><span>Aa</span><b>已掌握词汇</b><strong>${mastered}<small> 个</small></strong></div>
-    <div class="growth-row"><span>★</span><b>收藏好句</b><strong>${savedSentences}<small> 句</small></strong></div>
-    <div class="growth-row"><span>Edit</span><b>仿写句子</b><strong>${imitationCount}<small> 句</small></strong></div>`;
+    <div class="growth-row"><span class="growth-dot"></span><b>阅读教练评分</b><strong>${avgCoach||"—"}<small>${avgCoach?" 分":""}</small></strong></div>
+    <div class="growth-row"><span class="growth-dot"></span><b>Leo XP</b><strong>${data.coach.xp}<small> XP</small></strong></div>
+    <div class="growth-row"><span class="growth-dot"></span><b>任务完成</b><strong>${weekDone}<small> / ${week.length} 项</small></strong></div>
+    <div class="growth-row"><span class="growth-dot"></span><b>已完成章节</b><strong>${completedChapters}<small> 章</small></strong></div>
+    <div class="growth-row"><span class="growth-dot"></span><b>已掌握词汇</b><strong>${mastered}<small> 个</small></strong></div>
+    <div class="growth-row"><span class="growth-dot"></span><b>收藏好句</b><strong>${savedSentences}<small> 句</small></strong></div>
+    <div class="growth-row"><span class="growth-dot"></span><b>仿写句子</b><strong>${imitationCount}<small> 句</small></strong></div>`;
 
   if($("dashboardCurrentBook")){
     const p=active?Math.min(100,Math.round((active.current||completedChapters)/(active.total||1)*100)):0;
-    $("dashboardCurrentBook").innerHTML=active?`<div class="current-reading"><img class="novel-cover" src="${active.cover||'assets/wonder_cover_original.svg'}" alt="${esc(active.title)} 封面"><div><h3>${esc(active.title)}</h3><p>Chapter ${active.current||completedChapters||1}</p><div class="reading-progress"><span style="width:${p}%"></span></div><small>本书进度：${p}%</small><button onclick="showPage('novel')">继续阅读</button></div></div>`:'<div class="empty-state">还没有正在阅读的书。</div>';
+    $("dashboardCurrentBook").innerHTML=active?`<div class="current-reading"><img class="novel-cover" src="${active.cover||'assets/wonder_cover_original.svg'}" alt="${esc(active.title)} 封面"><div><h3>${esc(active.title)}</h3><p>Chapter ${active.current||completedChapters||1}</p><div class="reading-progress"><span style="width:${p}%"></span></div><small>本书进度：${p}%</small><button onclick="showPage('novel')">进入阅读导览</button></div></div>`:'<div class="empty-state">还没有正在阅读的书。</div>';
   }
   if($("dashboardWeekCard"))$("dashboardWeekCard").innerHTML=`<p>本周进度 <strong>${weekPct}%</strong></p><div class="reading-progress week-progress"><span style="width:${weekPct}%"></span></div><p>已完成 ${weekDone} / ${week.length} 项任务</p><button onclick="showPage('week')">查看本周计划</button>`;
 }
@@ -2550,7 +2698,7 @@ function renderNovel(){renderWonderToc();
         <div class="journal-meta"><span>${esc(c.name)}</span><span>${formatJournalDate(c.date)}</span><span>about ${c.minutes||10} minutes</span></div>
         <div class="journal-section">
           <div class="journal-label"><svg><use href="#ico-compass"></use></svg> Today's Mission</div>
-          <div class="mission-list">${missions.map((m,i)=>`<div class="mission-item"><span class="mission-check">${c.done||i===0?'✓':'·'}</span>${m}</div>`).join("")}</div>
+          <div class="mission-list">${missions.map((m,i)=>`<div class="mission-item"><span class="mission-check">${c.done||i===0?'':'·'}</span>${m}</div>`).join("")}</div>
         </div>
         <div class="journal-section">
           <div class="journal-label"><svg><use href="#ico-books"></use></svg> Vocabulary</div>
@@ -2607,6 +2755,19 @@ function renderNovel(){renderWonderToc();
       <div class="sentence-bank-footer"><span class="journal-reason">${esc(c.quoteReason||"Saved Sentence")}</span><button class="btn" onclick="openChapterModal(${c.id})">打开原章节</button></div>
     </article>`).join(""):'<div class="empty-bank">还没有收藏金句。完成今日章节时，保存一句喜欢的原文吧。</div>';
 
+  const imitationItems=data.chapters
+    .filter(c=>(c.imitation||c.imitationPattern||"").trim())
+    .sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  const imitationEl=$("imitationList");
+  if(imitationEl)imitationEl.innerHTML=imitationItems.length?imitationItems.map(c=>`
+    <article class="imitation-card">
+      <div class="sentence-bank-meta"><span>${esc(c.book||"Reading Journal")}</span><span>${esc(c.name||"")}</span><span>${formatJournalDate(c.date)}</span></div>
+      ${c.favouriteQuote?`<div class="imitation-source" style="margin-top:12px">“${esc(c.favouriteQuote)}”</div>`:""}
+      ${c.imitationPattern?`<div class="small" style="margin-top:10px"><strong>句型提示：</strong>${esc(c.imitationPattern)}</div>`:""}
+      <div class="imitation-answer">${c.imitation?esc(c.imitation):'<span class="small">还没有填写仿写内容。</span>'}</div>
+      <div class="toolbar"><button class="btn" onclick="openChapterModal(${c.id})">查看 / 编辑章节</button></div>
+    </article>`).join(""):'<div class="imitation-empty">还没有仿写练习。打开一个章节，收藏好句并完成一句仿写吧。</div>';
+
   const total=Math.max(6,data.chapters.length||0);
   const completed=data.chapters.filter(x=>x.done).length;
   const places=["Reading Forest","Word Mountain","Writing River","Science Camp","Piano Hall","Achievement Castle"];
@@ -2638,7 +2799,7 @@ function renderNovel(){renderWonderToc();
 
 function normaliseLearningWorldData(){
   data.settings=data.settings||{};
-  if(!data.settings.siteTitle || ["Little Explorer Learning World","Little Explorer 学习中 World"].includes(data.settings.siteTitle)) data.settings.siteTitle="晞白的学习世界";
+  if(!data.settings.siteTitle || ["Little Explorer Learning World","Little Explorer Learning World"].includes(data.settings.siteTitle)) data.settings.siteTitle="晞白的学习世界";
   if(!data.settings.plannerTitle || ["Weekly 学习中 Plan","Weekly Study Plan","Weekly Plan"].includes(data.settings.plannerTitle)) data.settings.plannerTitle="本周学习计划";
   if(!data.settings.studentName)data.settings.studentName="Leo";
   if(!data.settings.weeklyReadingGoal)data.settings.weeklyReadingGoal=5;
@@ -2668,6 +2829,89 @@ function normaliseLearningWorldData(){
   saveData();
 }
 
+
+let pendingMistakePhoto="";
+let mistakeAnalysis={extractedText:"",summary:"",questionType:"",suggestedTopic:"",suggestedReason:""};
+function awardPoints(amount,key,label){
+  data.rewards=data.rewards||clone(defaults.rewards);data.rewards.ledger=data.rewards.ledger||[];
+  if(key&&data.rewards.ledger.some(x=>x.key===key))return false;
+  data.rewards.points=(Number(data.rewards.points)||0)+amount;
+  data.rewards.ledger.push({id:Date.now()+Math.random(),key:key||`manual:${Date.now()}`,amount,label,date:localISODate()});
+  data.rewards.activityDates=[...new Set([...(data.rewards.activityDates||[]),localISODate()])];
+  showRewardToast(`+${amount}  ${label||"Explorer Energy"}`);return true;
+}
+function showRewardToast(text){const old=document.querySelector('.reward-toast');if(old)old.remove();const el=document.createElement('div');el.className='reward-toast';el.textContent=text;document.body.appendChild(el);setTimeout(()=>el.remove(),2500)}
+function datePlus(dateStr,days){const d=new Date((dateStr||localISODate())+'T12:00:00');d.setDate(d.getDate()+days);return localISODate(d)}
+function streakDays(){const set=new Set(data.rewards?.activityDates||[]);let n=0,d=new Date();while(set.has(localISODate(d))){n++;d.setDate(d.getDate()-1)}return n}
+function levelInfo(){const points=Number(data.rewards?.points)||0, size=100, level=Math.floor(points/size)+1, within=points%size;return {points,level,within,pct:within,next:level*size}}
+function compressMistakePhoto(file){return new Promise((resolve,reject)=>{if(!file)return resolve('');const r=new FileReader();r.onerror=reject;r.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{const max=1200,scale=Math.min(1,max/Math.max(img.width,img.height));const c=document.createElement('canvas');c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(img,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.82))};img.src=r.result};r.readAsDataURL(file)})}
+function loadTesseract(){return new Promise((resolve,reject)=>{if(window.Tesseract)return resolve(window.Tesseract);const existing=document.querySelector('script[data-tesseract]');if(existing){existing.addEventListener('load',()=>resolve(window.Tesseract));existing.addEventListener('error',reject);return}const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';sc.dataset.tesseract='1';sc.onload=()=>resolve(window.Tesseract);sc.onerror=()=>reject(new Error('OCR library unavailable'));document.head.appendChild(sc)})}
+function cleanOcrText(text){return String(text||'').replace(/\r/g,'').replace(/[ \t]+/g,' ').replace(/\n{3,}/g,'\n\n').trim()}
+function inferMistakeAnalysis(text,subject){
+ const t=(text||'').toLowerCase();let questionType='综合题',topic='待确认',reason='不会知识点';
+ if(subject==='Math'){
+   if(/fraction|numerator|denominator|分数|\d+\s*\/\s*\d+/.test(t)){questionType='分数题';topic='Fractions'}
+   else if(/perimeter|周长/.test(t)){questionType='周长题';topic='Perimeter'}
+   else if(/area|面积/.test(t)){questionType='面积题';topic='Area'}
+   else if(/ratio|比例/.test(t)){questionType='比例题';topic='Ratio'}
+   else if(/how many|altogether|left|remaining|一共|剩下|还剩/.test(t)){questionType='应用题';topic='Word Problem'}
+   else if(/[+×x*÷\/-]/.test(t)){questionType='计算题';topic='Calculation'}
+   reason=/show your working|steps|方法|列式/.test(t)?'方法选择错误':(/[+×x*÷\/-]/.test(t)?'计算错误':'不会知识点');
+ } else if(subject==='English'){
+   if(/choose|circle|underline|correct answer/.test(t)){questionType='选择／语法题';topic='Grammar'}
+   else if(/passage|comprehension|according to/.test(t)){questionType='阅读理解';topic='Comprehension'}
+   else if(/write|sentence|composition/.test(t)){questionType='写作／句子表达';topic='Writing'}
+   reason=questionType.includes('写作')?'表达不完整':(/not|except|best/.test(t)?'看错题目':'不会知识点');
+ } else if(subject==='Science'){
+   if(/explain|why|how/.test(t)){questionType='解释题';topic='Science Explanation';reason='表达不完整'}
+   else if(/identify|name|state/.test(t)){questionType='识别／知识题';topic='Science Concepts'}
+   else if(/diagram|figure|图/.test(t)){questionType='看图题';topic='Diagram Skills';reason='看错题目'}
+ } else if(subject==='Chinese'){
+   if(/阅读|短文|根据/.test(text)){questionType='阅读理解';topic='阅读理解'}
+   else if(/造句|写话|作文/.test(text)){questionType='写作表达';topic='写作';reason='表达不完整'}
+   else if(/选择|填空/.test(text)){questionType='选择／填空题';topic='词语与语法'}
+ }
+ const first=(text||'').split(/\n|[。！？!?]/).map(x=>x.trim()).find(Boolean)||'';
+ const summary=first.length>100?first.slice(0,100)+'…':first;
+ return {extractedText:text,summary:summary||`${subject} ${questionType}`,questionType,suggestedTopic:topic,suggestedReason:reason};
+}
+function renderMistakeAnalysis(){
+ const a=mistakeAnalysis;$('mistakeExtractedText').value=a.extractedText||'';$('mistakeSummary').value=a.summary||'';
+ $('mistakeAnalysisChips').innerHTML=a.questionType?`<span class="tag">题型：${esc(a.questionType)}</span><span class="tag">知识点建议：${esc(a.suggestedTopic)}</span><span class="tag warn">错误类型建议：${esc(a.suggestedReason)}</span>`:'';
+ if(a.suggestedTopic&&!$('mistakeTopic').value.trim())$('mistakeTopic').value=a.suggestedTopic;
+ if(a.suggestedReason)$('mistakeReason').value=a.suggestedReason;
+ if(a.summary&&!$('mistakeQuestion').value.trim())$('mistakeQuestion').value=a.summary;
+}
+async function analyzeMistakePhoto(){
+ const status=$('mistakeOcrStatus');if(!pendingMistakePhoto){status.textContent='请先上传一张错题照片。';return}
+ status.innerHTML='<span class="ocr-spinner"></span>正在识别照片文字；首次使用需要联网载入识别组件……';
+ try{
+   const T=await loadTesseract();
+   const result=await T.recognize(pendingMistakePhoto,'eng+chi_sim',{logger:m=>{if(m.status==='recognizing text')status.innerHTML=`<span class="ocr-spinner"></span>正在识别 ${Math.round((m.progress||0)*100)}%`}});
+   const text=cleanOcrText(result?.data?.text||'');
+   if(!text)throw new Error('No text detected');
+   mistakeAnalysis=inferMistakeAnalysis(text,$('mistakeSubject').value);renderMistakeAnalysis();
+   status.textContent='识别完成。请核对文字、题型和错误类型建议后再保存。';
+ }catch(err){status.textContent='自动识别未成功。可能是网络、照片清晰度或手写文字导致；可以直接手动填写，不影响保存。'}
+}
+const photoInput=document.getElementById('mistakePhoto');if(photoInput)photoInput.addEventListener('change',async e=>{try{pendingMistakePhoto=await compressMistakePhoto(e.target.files[0]);$('mistakePhotoPreview').innerHTML=pendingMistakePhoto?'<img class="mistake-photo" src="'+pendingMistakePhoto+'"><b>照片已准备好</b>':'';mistakeAnalysis={extractedText:'',summary:'',questionType:'',suggestedTopic:'',suggestedReason:''};renderMistakeAnalysis();setTimeout(analyzeMistakePhoto,100)}catch(err){alert('照片处理失败，请换一张较小或更清晰的图片。')}});
+function addMistake(){
+ const extracted=$('mistakeExtractedText')?.value.trim()||'',summary=$('mistakeSummary')?.value.trim()||'';
+ const q=$('mistakeQuestion').value.trim()||summary,topic=$('mistakeTopic').value.trim(),correction=$('mistakeCorrection').value.trim();if(!q&&!topic&&!pendingMistakePhoto)return alert('请填写题目摘要、知识点，或上传照片。');const now=localISODate(),id=Date.now();data.mistakes.push({id,subject:$('mistakeSubject').value,topic,question:q,reason:$('mistakeReason').value,correction,answerDraft:'',photo:pendingMistakePhoto,created:now,status:correction?'learning':'new',reviewCount:0,successCount:0,nextReview:correction?now:'',history:[],extractedText:extracted,summary:summary,questionType:mistakeAnalysis.questionType||''});awardPoints(1,`mistake-add:${id}`,'发现并收录错题');pendingMistakePhoto='';mistakeAnalysis={extractedText:'',summary:'',questionType:'',suggestedTopic:'',suggestedReason:''};['mistakeTopic','mistakeQuestion','mistakeCorrection','mistakeExtractedText','mistakeSummary'].forEach(id=>{if($(id))$(id).value=''});$('mistakePhoto').value='';$('mistakePhotoPreview').innerHTML='';$('mistakeAnalysisChips').innerHTML='';$('mistakeOcrStatus').textContent='上传照片后会自动尝试提取文字并给出题型、知识点和错误类型建议。';if($('mistakeFilter'))$('mistakeFilter').value='new';saveData();renderAll();setTimeout(()=>openCorrectionWorkspace(id),80)}
+function reviewMistake(id,result){const m=data.mistakes.find(x=>x.id===id);if(!m)return;const today=localISODate();m.history=m.history||[];m.history.push({date:today,result});m.reviewCount=(m.reviewCount||0)+1;if(result==='again'){m.successCount=0;m.status='learning';m.nextReview=datePlus(today,1)}else if(result==='close'){m.successCount=Math.max(0,m.successCount||0);m.status='learning';m.nextReview=datePlus(today,3);awardPoints(3,`review:${id}:${today}:close`,'完成错题回顾')}else{m.successCount=(m.successCount||0)+1;awardPoints(m.successCount>=2?10:5,`review:${id}:${today}:mastered`,`错题${m.successCount>=2?'毕业':'独立做对'}`);if(m.successCount>=2){m.status='mastered';m.nextReview=''}else{m.status='learning';m.nextReview=datePlus(today,7)}}saveData();renderAll()}
+function markCorrected(id){openCorrectionWorkspace(id)}
+
+let activeCorrectionId=null;
+function saveAnswerDraft(id,value){const m=data.mistakes.find(x=>x.id===id);if(!m)return;m.answerDraft=value;saveData()}
+function openCorrectionWorkspace(id){const m=data.mistakes.find(x=>x.id===id);if(!m)return;activeCorrectionId=id;const body=$('correctionWorkspaceBody');body.innerHTML=`<div class="pending-banner">这道错题已进入待订正清单。先独立重做，再总结正确方法。</div><div class="correction-grid"><div class="correction-question-pane"><div class="correction-meta"><span class="tag">${esc(m.subject)}</span><span class="tag">${esc(m.topic||'未命名知识点')}</span>${m.questionType?`<span class="tag">${esc(m.questionType)}</span>`:''}<span class="tag warn">${esc(m.reason)}</span></div>${m.photo?`<img src="${m.photo}" alt="错题图片">`:''}${m.question?`<p><b>题目摘要：</b>${esc(m.question)}</p>`:''}${m.extractedText?`<details><summary><b>查看识别文字</b></summary><p style="white-space:pre-wrap">${esc(m.extractedText)}</p></details>`:''}</div><div><label><b>我的重新作答</b><textarea id="workspaceAnswer" class="answer-sheet" placeholder="在这里重新作答，写步骤、算式或完整句子……">${esc(m.answerDraft||'')}</textarea></label><label><b>正确方法 / 错误提醒</b><textarea id="workspaceCorrection" rows="5" placeholder="例如：先圈关键词；统一单位；答案要写完整句……">${esc(m.correction||'')}</textarea></label><div class="correction-actions"><button class="btn" onclick="closeCorrectionWorkspace()">取消 / 关闭</button><button class="btn" onclick="saveCorrectionWorkspace(false)">保存草稿</button><button class="btn primary" onclick="saveCorrectionWorkspace(true)">完成订正 +3 </button></div></div></div>`;$('correctionModal').classList.add('show');document.body.style.overflow='hidden'}
+function closeCorrectionWorkspace(){const modal=$('correctionModal');if(modal)modal.classList.remove('show');document.body.style.overflow='';activeCorrectionId=null}
+function saveCorrectionWorkspace(complete){const m=data.mistakes.find(x=>x.id===activeCorrectionId);if(!m)return;const answer=$('workspaceAnswer').value.trim(),correction=$('workspaceCorrection').value.trim();m.answerDraft=answer;m.correction=correction;if(complete){if(!answer)return alert('请先完成“我的重新作答”。');if(!correction)return alert('请写一句正确方法或下次提醒。');m.status='learning';m.nextReview=localISODate();m.correctedAt=localISODate();awardPoints(3,`correct:${m.id}`,'完成错题订正')}saveData();renderAll();closeCorrectionWorkspace()}
+
+function deleteMistake(id){if(confirm('删除这道错题？')){data.mistakes=data.mistakes.filter(x=>x.id!==id);saveData();renderAll()}}
+function renderRewards(){if(!$('energyTotal'))return;const li=levelInfo(), mastered=data.mistakes.filter(x=>x.status==='mastered').length;$('energyTop').textContent=li.points;$('energyTotal').textContent=li.points;$('energyLevel').textContent=li.level;$('energyStreak').textContent=streakDays();$('energyGraduated').textContent=mastered;$('levelPct').textContent=li.pct+'%';$('energyFill').style.width=li.pct+'%';$('levelHint').textContent=`距离 Level ${li.level+1} 还差 ${100-li.within} 点能量`;
+ const badges=[['第一步','获得 10 点能量',li.points>=10],['错题猎人','收录 5 道错题',data.mistakes.length>=5],['复习勇士','完成 10 次复习',data.mistakes.reduce((a,m)=>a+(m.reviewCount||0),0)>=10],['知识守护者','让 10 道错题毕业',mastered>=10]];$('badgeGrid').innerHTML=badges.map(b=>`<div class="badge-card ${b[2]?'':'locked'}"><strong>${b[2]?'':''} ${b[0]}</strong><span class="small">${b[1]}</span></div>`).join('')}
+function renderMistakes(){if(!$('mistakeList'))return;renderRewards();const today=localISODate(),all=data.mistakes||[],due=all.filter(m=>m.status!=='new'&&m.status!=='mastered'&&m.nextReview&&m.nextReview<=today);$('mistakeDue').textContent=due.length;$('mistakeNew').textContent=all.filter(m=>m.status==='new').length;$('mistakeLearning').textContent=all.filter(m=>m.status==='learning').length;$('mistakeMastered').textContent=all.filter(m=>m.status==='mastered').length;const f=$('mistakeFilter')?.value||'due';let list=f==='due'?due:f==='all'?all:all.filter(m=>m.status===f);list=[...list].sort((a,b)=>(a.nextReview||a.created||'').localeCompare(b.nextReview||b.created||''));$('mistakeList').innerHTML=list.length?list.map(m=>{const isDue=m.status==='learning'&&m.nextReview<=today;const quick=m.status==='new'?`<div class="correction-quick"><b>快速重新作答</b><textarea placeholder="可以直接在这里写答案，也可以进入完整订正界面" oninput="saveAnswerDraft(${m.id},this.value)">${esc(m.answerDraft||'')}</textarea><div class="correction-actions"><button class="btn primary" onclick="openCorrectionWorkspace(${m.id})">进入订正界面</button><button class="btn" onclick="saveAnswerDraft(${m.id},this.closest('.correction-quick').querySelector('textarea').value)">保存草稿</button></div></div>`:'';return `<div class="mistake-card ${isDue?'due':''}"><div class="mistake-head"><div><b>${esc(m.subject)} · ${esc(m.topic||'未命名知识点')}</b><div class="small">收录 ${esc(m.created)}${m.nextReview?' · 下次复习 '+esc(m.nextReview):''}</div></div><span class="tag ${isDue?'warn':''}">${m.status==='new'?'待订正':m.status==='mastered'?'已掌握':isDue?'今天复习':'复习中'}</span></div><div class="mistake-tags"><span class="tag">${esc(m.reason)}</span><span class="tag">已复习 ${m.reviewCount||0} 次</span></div>${m.photo?`<img class="mistake-photo" src="${m.photo}">`:''}${m.question?`<p><b>题目：</b>${esc(m.question)}</p>`:''}${quick}<p><b>正确方法：</b>${esc(m.correction||'尚未填写')}</p>${m.status==='new'?`<button class="btn primary" onclick="openCorrectionWorkspace(${m.id})">开始订正 +3 </button>`:m.status==='mastered'?`<button class="btn" onclick="reviewMistake(${m.id},'again')">重新加入复习</button>`:`<div class="review-buttons"><button class="btn" onclick="reviewMistake(${m.id},'again')">还不会</button><button class="btn" onclick="reviewMistake(${m.id},'close')">有点会</button><button class="btn primary" onclick="reviewMistake(${m.id},'mastered')">独立做对</button></div>`}<div class="toolbar" style="margin-top:8px"><button class="btn" onclick="openCorrectionWorkspace(${m.id})">${m.status==='new'?'进入订正':'查看 / 编辑订正'}</button><button class="btn" onclick="deleteMistake(${m.id})">删除</button></div></div>`}).join(''):'<div class="empty-lab">这里暂时没有符合条件的错题。上传错题后，会自动进入“待订正”清单。</div>'}
+
 function renderAll(){
   renderDashboard();
   renderNovel();
@@ -2678,9 +2922,10 @@ function renderAll(){
   if(typeof renderStats==="function")renderStats();
   if(typeof renderProgress==="function")renderProgress();
   renderSettings();
+  renderMistakes();
 }
 normaliseLearningWorldData();loadTheme();installDictionaryControls();
-renderAll();document.body.classList.add("home-mode");
+renderAll();document.body.classList.add("home-mode");document.body.classList.remove("week-mode");
 
 window.addEventListener("error",function(e){
   let box=document.getElementById("runtimeNotice");
@@ -2698,18 +2943,297 @@ window.addEventListener("error",function(e){
 window.addEventListener('DOMContentLoaded',()=>{
   renderDriveOriginInfo();
 });
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('correctionModal')?.classList.contains('show'))closeCorrectionWorkspace()});
 </script>
+
+<script>
+(function(){
+  function bindWeekMouseScroll(forceSync=false){
+    const grid=document.getElementById('weekGrid');
+    const range=document.getElementById('weekScrollRange');
+    if(!grid||!range)return;
+    const syncRange=()=>{
+      const max=Math.max(0,grid.scrollWidth-grid.clientWidth);
+      range.max='1000';
+      range.value=max?Math.round(grid.scrollLeft/max*1000):0;
+      range.disabled=false;
+      range.setAttribute('aria-valuetext',max?'拖动查看本周全部计划':'当前内容已全部显示');
+    };
+    if(!range.dataset.bound){
+      range.dataset.bound='1';
+      range.addEventListener('input',()=>{
+        const max=Math.max(0,grid.scrollWidth-grid.clientWidth);
+        grid.scrollLeft=max*(Number(range.value)/1000);
+      });
+      grid.addEventListener('scroll',syncRange,{passive:true});
+      window.addEventListener('resize',()=>setTimeout(syncRange,60));
+      new MutationObserver(()=>setTimeout(syncRange,30)).observe(grid,{childList:true,subtree:true});
+    }
+    if(forceSync){setTimeout(syncRange,60);setTimeout(syncRange,220);}
+    else setTimeout(syncRange,100);
+  }
+  window.refreshWeekMouseScroll=()=>bindWeekMouseScroll(true);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>bindWeekMouseScroll(false));else bindWeekMouseScroll(false);
+  document.addEventListener('click',e=>{if(e.target.closest('[data-page="week"]'))bindWeekMouseScroll(true)});
+})();
+</script>
+
+<style>
+/* V21.4 logo and goal icon refinements */
+.dashboard-brand{min-height:142px!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:10px!important;overflow:hidden!important}
+.dashboard-brand img{width:154px!important;height:124px!important;max-width:100%!important;object-fit:cover!important;object-position:center!important;border-radius:18px!important;display:block!important}
+.dashboard-brand b,.dashboard-brand small,.dashboard-brand .brand-words{display:none!important}
+.goal-icon{display:flex!important;align-items:center!important;justify-content:center!important;width:34px!important;height:34px!important;min-height:34px!important;border-radius:10px!important;background:#eef6ff!important}
+.goal-icon svg{display:block!important;width:25px!important;height:25px!important}
+@media(max-width:900px){.dashboard-brand{min-height:112px!important}.dashboard-brand img{width:132px!important;height:96px!important}}
+</style>
+
+<style>
+/* V22 profile navigation rebuild: preserve the V21.4 visual language */
+.profile-brand{
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  padding:12px!important;
+  font:inherit!important;
+  text-align:left!important;
+  cursor:pointer!important;
+  color:#24372f!important;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease!important;
+}
+.profile-brand:hover{transform:translateY(-2px)!important;box-shadow:0 8px 0 #4f3424!important;background:#fff4d9!important}
+.profile-brand:active{transform:translateY(2px)!important;box-shadow:0 3px 0 #4f3424!important}
+.profile-brand:focus-visible{outline:3px solid #9fc6e8!important;outline-offset:3px!important}
+.brand-avatar{
+  width:66px!important;
+  height:66px!important;
+  flex:0 0 66px!important;
+  overflow:hidden!important;
+  border-radius:50%!important;
+  border:3px solid #4f3424!important;
+  background:#fffaf0!important;
+  box-shadow:0 3px 0 rgba(79,52,36,.22)!important;
+}
+.brand-avatar img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;display:block!important}
+.brand-profile-copy{display:flex!important;min-width:0!important;flex-direction:column!important;gap:4px!important}
+.brand-profile-copy b{font-size:18px!important;line-height:1.1!important;color:#214d3a!important}
+.brand-profile-copy small{font-size:12px!important;line-height:1.35!important;color:#65513f!important;font-weight:700!important}
+.dashboard-profile{display:none!important}
+@media(max-width:900px){
+  .profile-brand{max-width:310px!important;margin:0 auto 8px!important}
+  .brand-avatar{width:58px!important;height:58px!important;flex-basis:58px!important}
+}
+</style>
+
+<style>
+/* V22.1 profile and curriculum refinements */
+.profile-brand{
+  min-height:118px!important;
+  padding:10px 8px!important;
+  gap:14px!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  border-radius:0!important;
+}
+.profile-brand:hover,.profile-brand:active{background:transparent!important;box-shadow:none!important;transform:none!important}
+.brand-avatar{
+  position:relative!important;
+  width:96px!important;height:96px!important;flex:0 0 96px!important;
+  border:0!important;background:transparent!important;box-shadow:none!important;
+  cursor:pointer!important;
+}
+.brand-avatar img{border-radius:50%!important;transition:transform .18s ease,filter .18s ease!important}
+.brand-avatar:hover img{transform:scale(1.035);filter:brightness(.9)}
+.avatar-edit-hint{
+  position:absolute;left:50%;bottom:7px;transform:translateX(-50%);
+  padding:3px 9px;border-radius:999px;background:rgba(38,55,47,.82);color:#fff;
+  font-size:10px;font-weight:800;line-height:1.2;opacity:0;transition:opacity .18s ease;pointer-events:none;
+}
+.brand-avatar:hover .avatar-edit-hint{opacity:1}
+.brand-profile-copy b{font-size:20px!important}.brand-profile-copy small{font-size:12px!important}
+.progress-with-label{position:relative!important;height:20px!important;margin-top:10px!important;background:rgba(255,255,255,.3)!important}
+.progress-with-label span{position:absolute!important;inset:0 auto 0 0!important;z-index:1!important}
+.progress-with-label b{position:absolute!important;inset:0!important;z-index:2!important;display:flex!important;align-items:center!important;justify-content:center!important;color:#38534a!important;font-size:12px!important;font-weight:900!important;text-shadow:0 1px 0 rgba(255,255,255,.65)!important}
+.curriculum-book .book-percent{display:none!important}
+@media(max-width:900px){.brand-avatar{width:82px!important;height:82px!important;flex-basis:82px!important}.profile-brand{min-height:102px!important}}
+</style>
+
+<style>
+/* V22.2 brand header: full illustration, no card or forced circular crop */
+.profile-brand{
+  width:100%!important;min-height:0!important;margin:0 0 16px!important;padding:6px 4px 16px!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;gap:8px!important;
+  background:transparent!important;border:0!important;border-bottom:1px solid rgba(79,52,36,.16)!important;
+  border-radius:0!important;box-shadow:none!important;overflow:visible!important;
+}
+.profile-brand:hover,.profile-brand:active{transform:none!important;background:transparent!important;box-shadow:none!important}
+.brand-avatar{
+  position:relative!important;width:148px!important;height:108px!important;flex:0 0 auto!important;
+  display:block!important;padding:0!important;border:0!important;border-radius:22px!important;
+  overflow:hidden!important;background:transparent!important;box-shadow:none!important;cursor:pointer!important;
+}
+.brand-avatar img{
+  width:100%!important;height:100%!important;display:block!important;object-fit:contain!important;object-position:center!important;
+  border-radius:22px!important;filter:none!important;transform:none!important;transition:transform .18s ease,filter .18s ease!important;
+}
+.brand-avatar:hover img{transform:scale(1.035)!important;filter:brightness(.96)!important}
+.avatar-edit-hint{
+  position:absolute!important;left:50%!important;bottom:5px!important;transform:translateX(-50%)!important;
+  white-space:nowrap!important;padding:4px 10px!important;border-radius:999px!important;
+  background:rgba(38,55,47,.84)!important;color:#fff!important;font-size:10px!important;font-weight:800!important;
+  opacity:0!important;transition:opacity .18s ease!important;pointer-events:none!important;
+}
+.brand-avatar:hover .avatar-edit-hint,.brand-avatar:focus-visible .avatar-edit-hint{opacity:1!important}
+.brand-profile-copy{
+  width:100%!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:1px!important;
+  padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;text-align:center!important;cursor:pointer!important;
+}
+.brand-profile-copy strong{display:block!important;font-family:Georgia,"Songti SC",serif!important;font-size:19px!important;line-height:1.15!important;color:#214d3a!important;letter-spacing:.01em!important}
+.brand-profile-copy b{display:block!important;font-size:13px!important;line-height:1.3!important;color:#65513f!important;font-weight:800!important}
+.brand-profile-copy small{display:block!important;font-size:9px!important;line-height:1.3!important;color:#8b7358!important;font-weight:900!important;letter-spacing:.16em!important;text-transform:uppercase!important}
+.brand-profile-copy:hover strong{color:#4f7b5d!important}
+.brand-avatar:focus-visible,.brand-profile-copy:focus-visible{outline:3px solid rgba(94,143,112,.38)!important;outline-offset:3px!important}
+@media(max-width:900px){
+  .profile-brand{max-width:330px!important;margin:0 auto 10px!important;padding-bottom:10px!important}
+  .brand-avatar{width:132px!important;height:94px!important}
+}
+</style>
+
+<style>
+/* V22.3 full-bleed illustration brand header */
+.profile-brand{
+  width:100%!important;
+  height:218px!important;
+  min-height:218px!important;
+  margin:0 0 16px!important;
+  padding:0!important;
+  display:block!important;
+  overflow:hidden!important;
+  background:#f7edcf!important;
+  border:4px solid #4f3424!important;
+  border-radius:28px!important;
+  box-shadow:0 9px 0 rgba(79,52,36,.72)!important;
+}
+.brand-avatar{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:23px!important;
+  overflow:hidden!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.brand-avatar img{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:23px!important;
+  transform:none!important;
+}
+.brand-avatar:hover img{transform:scale(1.018)!important;filter:brightness(.97)!important}
+.brand-profile-copy{display:none!important}
+.avatar-edit-hint{bottom:10px!important}
+@media(max-width:900px){
+  .profile-brand{width:100%!important;max-width:none!important;height:175px!important;min-height:175px!important;margin:0 0 12px!important}
+}
+</style>
+
+
+<style id="v23-reading-journey-css">
+/* V23 Reading Journey reconstruction */
+#novel{max-width:1320px;margin:0 auto}
+.journey-page-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:20px;padding:10px 4px 4px}
+.journey-page-head h2{margin:4px 0 7px;font:700 34px Georgia,"Songti SC",serif;color:#284f3d}
+.journey-page-head p,.journey-section-head p{margin:0;color:#697264;line-height:1.55}
+.journey-kicker{text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:800;color:#8b7653}
+.journey-section{background:#fffdf7;border:1px solid #d9c9aa;border-radius:20px;padding:22px;margin-bottom:20px;box-shadow:0 10px 28px rgba(66,50,29,.09)}
+.journey-section-head{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}
+.journey-section-head h3{margin:0 0 5px;color:#2d503f;font-size:22px}
+.journey-filter{display:flex;gap:6px;padding:5px;background:#f2ead9;border:1px solid #dac8a7;border-radius:12px}
+.journey-filter button{border:0;background:transparent;padding:8px 11px;border-radius:9px;color:#655d50;font:inherit;font-weight:700;cursor:pointer}
+.journey-filter button.active{background:#315f49;color:#fff}
+.journey-shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:18px;align-items:stretch}
+.journey-book{position:relative;display:flex;flex-direction:column;gap:11px;padding:12px;border:1px solid #d6c4a4;border-radius:17px;background:linear-gradient(160deg,#fffef9,#f5ecd9);cursor:pointer;transition:.18s;min-width:0}
+.journey-book:hover{transform:translateY(-4px);box-shadow:0 12px 22px rgba(55,43,27,.13);border-color:#a88e64}
+.journey-book-cover{aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:linear-gradient(145deg,#476d58,#284d3c);display:grid;place-items:center;color:#fff8e8;text-align:center;font:700 22px Georgia,serif;padding:16px;box-shadow:inset 7px 0 rgba(255,255,255,.10)}
+.journey-book-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.journey-book h4{margin:0;color:#2d382f;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.journey-book-meta{font-size:12px;color:#746a5b;min-height:18px}
+.journey-book-progress{height:18px;border-radius:999px;background:#e6dcc7;position:relative;overflow:hidden;border:1px solid #d4c3a4}
+.journey-book-progress span{display:block;height:100%;background:linear-gradient(90deg,#5f8569,#315f49);border-radius:999px}
+.journey-book-progress b{position:absolute;inset:0;display:grid;place-items:center;font-size:11px;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.45)}
+.journey-book-actions{display:flex;gap:7px}.journey-book-actions button{flex:1;border:1px solid #cbb795;background:#fffaf0;border-radius:9px;padding:7px;font:inherit;font-size:12px;cursor:pointer;color:#4e574d}
+.journey-empty{grid-column:1/-1;padding:50px 20px;text-align:center;border:1px dashed #cdbb9d;border-radius:16px;color:#756b5d;background:#faf5ea}
+.journey-progress-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.journey-stat{padding:18px;border-radius:16px;background:#f4ecdb;border:1px solid #dbc9a8;text-align:center}
+.journey-stat b{display:block;font-size:30px;line-height:1.1;color:#315f49;margin-bottom:5px}.journey-stat span{font-size:13px;color:#696257}
+.journey-map-section{overflow:hidden}.journey-adventure-map{position:relative;min-height:340px;border:1px solid #bfa77d;border-radius:18px;background:radial-gradient(circle at 20% 25%,rgba(255,255,255,.7),transparent 26%),linear-gradient(145deg,#eee0ba,#dfc795);overflow:hidden;padding:20px}
+.journey-adventure-map:before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(8deg,rgba(93,70,34,.035) 0 1px,transparent 1px 8px);pointer-events:none}
+.journey-map-route{position:absolute;inset:0;width:100%;height:100%;z-index:1}.journey-map-route path{fill:none;stroke:#816f50;stroke-width:1.2;stroke-dasharray:3 2;vector-effect:non-scaling-stroke}
+.journey-map-stop{position:absolute;transform:translate(-50%,-50%);z-index:2;width:92px;text-align:center;color:#685d4b}
+.journey-map-stop i{display:grid;place-items:center;margin:auto;width:34px;height:34px;border-radius:50%;background:#d9c7a2;border:3px solid #fff3d5;box-shadow:0 2px 0 #9e8862;font-style:normal;font-weight:800}
+.journey-map-stop.done i{background:#315f49;color:#fff}.journey-map-stop.current i{background:#d98b3f;color:#fff;box-shadow:0 0 0 6px rgba(217,139,63,.19)}
+.journey-map-stop b{display:block;margin-top:7px;font-size:12px}.journey-map-stop small{font-size:10px}
+.journey-map-marker{position:absolute;z-index:4;width:62px;height:62px;object-fit:contain;transform:translate(-50%,-88%);filter:drop-shadow(0 6px 5px rgba(48,36,22,.25))}
+.guide-back{border:0;background:transparent;color:#315f49;font:inherit;font-weight:800;cursor:pointer;padding:7px 2px;margin:0 0 13px}
+.reading-guide-hero{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:24px;border:1px solid #d7c5a4;border-radius:20px;background:linear-gradient(145deg,#fffdf6,#f1e6ce);box-shadow:0 10px 28px rgba(66,50,29,.1);margin-bottom:20px}
+.guide-cover{width:150px;aspect-ratio:3/4;border-radius:13px;overflow:hidden;background:#315f49;color:white;display:grid;place-items:center;text-align:center;padding:14px;font:700 21px Georgia,serif;box-sizing:border-box}.guide-cover img{width:100%;height:100%;object-fit:cover}
+.guide-hero-copy h2{margin:3px 0 6px;color:#294d3c;font:700 31px Georgia,"Songti SC",serif}.guide-hero-copy p{margin:0 0 16px;color:#6e685d}
+.guide-progress-line{height:22px;border-radius:999px;background:#ded2bb;border:1px solid #c9b695;overflow:hidden;position:relative;max-width:680px}.guide-progress-line span{display:block;height:100%;background:linear-gradient(90deg,#62866a,#315f49)}.guide-progress-line b{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:12px;text-shadow:0 1px 2px #233}
+.guide-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.guide-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:20px}.guide-stage{border:1px solid #d7c5a4;background:#fffdf7;border-radius:18px;padding:20px;min-height:210px}.guide-stage-number{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#315f49;color:white;font-weight:800}.guide-stage h3{margin:14px 0 7px;color:#314c3e}.guide-stage p{color:#6e695f;line-height:1.55}.guide-stage ul{padding-left:18px;color:#585b53;line-height:1.7}
+.guide-chapters{background:#fffdf7;border:1px solid #d7c5a4;border-radius:20px;padding:22px}.guide-chapters-head{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:15px}.guide-chapters-head h3{margin:0;color:#315f49}.guide-chapter-list{display:grid;gap:10px}.guide-chapter{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:12px;border:1px solid #ddd0b9;border-radius:13px;padding:11px 13px;background:#fbf7ed}.guide-chapter-index{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#e3d6bf;color:#6c6253;font-weight:800}.guide-chapter.done .guide-chapter-index{background:#315f49;color:#fff}.guide-chapter.current{border-color:#d08b43;background:#fff6e9}.guide-chapter strong{display:block}.guide-chapter small{color:#756e62}.guide-chapter button{border:1px solid #bda985;background:#fff;border-radius:9px;padding:7px 10px;cursor:pointer;color:#315f49;font-weight:700}
+@media(max-width:800px){.journey-page-head,.journey-section-head{align-items:flex-start;flex-direction:column}.journey-progress-grid{grid-template-columns:repeat(2,1fr)}.guide-flow{grid-template-columns:1fr}.reading-guide-hero{grid-template-columns:105px 1fr}.guide-cover{width:105px}.journey-adventure-map{min-height:430px}.journey-map-stop{width:75px}}
+@media(max-width:520px){.journey-shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.journey-section{padding:14px}.journey-filter{width:100%;overflow-x:auto}.journey-filter button{white-space:nowrap}.reading-guide-hero{grid-template-columns:1fr}.guide-cover{width:130px}.guide-chapter{grid-template-columns:36px minmax(0,1fr)}.guide-chapter button{grid-column:2}.journey-progress-grid{gap:9px}.journey-stat{padding:14px 8px}.journey-stat b{font-size:25px}}
+</style>
+
+<script id="v23-reading-journey-js">
+let journeyFilter="all";
+let activeGuideBookId=null;
+function journeyEsc(value){return esc(value==null?"":String(value))}
+function setJourneyFilter(filter,button){journeyFilter=filter;document.querySelectorAll("#journeyBookFilter button").forEach(x=>x.classList.toggle("active",x===button));renderReadingJourney()}
+function openReadingGuide(bookId){activeGuideBookId=Number(bookId);const hub=$("readingJourneyHub"),guide=$("readingGuideView");if(hub)hub.hidden=true;if(guide)guide.hidden=false;renderReadingGuide();window.scrollTo({top:0,behavior:"smooth"})}
+function closeReadingGuide(){activeGuideBookId=null;const hub=$("readingJourneyHub"),guide=$("readingGuideView");if(hub)hub.hidden=false;if(guide)guide.hidden=true;renderReadingJourney();window.scrollTo({top:0,behavior:"smooth"})}
+function editJourneyBook(bookId,event){if(event)event.stopPropagation();const b=data.novelBooks.find(x=>x.id===Number(bookId));if(!b)return;const current=prompt("当前章节",String(b.current||0));if(current===null)return;const total=prompt("总章节",String(b.total||1));if(total===null)return;const t=Math.max(1,Number(total)||1);b.total=t;b.current=Math.max(0,Math.min(t,Number(current)||0));b.status=b.current>=t?"done":"reading";save();renderAll();if(activeGuideBookId===b.id)renderReadingGuide()}
+function uploadJourneyCover(bookId,event){if(event)event.stopPropagation();chooseNovelCover(bookId)}
+function addJourneyChapter(bookId){const b=data.novelBooks.find(x=>x.id===Number(bookId));if(!b)return;openChapterModal();setTimeout(()=>{if($("chapterBook"))$("chapterBook").value=b.title;if($("chapterName"))$("chapterName").value=`Chapter ${Math.min((b.current||0)+1,b.total||1)}`},30)}
+function renderReadingJourney(){
+ const shelf=$("journeyShelf"),stats=$("journeyProgress"),map=$("readingMap");if(!shelf||!stats||!map)return;
+ data.novelBooks=Array.isArray(data.novelBooks)?data.novelBooks:[];data.chapters=Array.isArray(data.chapters)?data.chapters:[];
+ const books=data.novelBooks.filter(b=>journeyFilter==="all"||b.status===journeyFilter);
+ shelf.innerHTML=books.length?books.map(b=>{const total=Math.max(1,Number(b.total)||1),cur=Math.max(0,Math.min(total,Number(b.current)||0)),pct=Math.round(cur/total*100),status={reading:"正在阅读",want:"计划阅读",done:"已完成"}[b.status]||"正在阅读";return `<article class="journey-book" onclick="openReadingGuide(${b.id})"><div class="journey-book-cover">${b.cover?`<img src="${journeyEsc(b.cover)}" alt="${journeyEsc(b.title)} 封面">`:journeyEsc(b.title)}</div><h4>${journeyEsc(b.title)}</h4><div class="journey-book-meta">${journeyEsc(b.author||"")} · ${status}</div><div class="journey-book-meta">章节 ${cur} / ${total}</div><div class="journey-book-progress"><span style="width:${pct}%"></span><b>${pct}%</b></div><div class="journey-book-actions"><button onclick="editJourneyBook(${b.id},event)">编辑进度</button><button onclick="uploadJourneyCover(${b.id},event)">${b.cover?"更换封面":"添加封面"}</button></div></article>`}).join(""):`<div class="journey-empty">当前分类还没有书籍。添加一本书，开始新的阅读旅程。</div>`;
+ const totalBooks=data.novelBooks.length,doneBooks=data.novelBooks.filter(b=>b.status==="done"||(Number(b.current)||0)>=(Number(b.total)||1)).length;
+ const totalChapters=data.novelBooks.reduce((n,b)=>n+(Number(b.total)||0),0),currentChapters=data.novelBooks.reduce((n,b)=>n+Math.min(Number(b.current)||0,Number(b.total)||0),0);
+ const readingDays=new Set(data.chapters.filter(c=>c.date).map(c=>c.date)).size,words=(data.vocab||[]).length;
+ stats.innerHTML=`<div class="journey-stat"><b>${doneBooks} / ${totalBooks}</b><span>完成书籍</span></div><div class="journey-stat"><b>${currentChapters} / ${totalChapters}</b><span>完成章节</span></div><div class="journey-stat"><b>${readingDays}</b><span>阅读天数</span></div><div class="journey-stat"><b>${words}</b><span>积累词汇</span></div>`;
+ const active=data.novelBooks.find(b=>b.status==="reading")||data.novelBooks[0];renderJourneyMap(active);
+}
+function renderJourneyMap(book){const map=$("readingMap");if(!map)return;if(!book){map.innerHTML='<div class="journey-empty" style="position:relative;z-index:2">添加书籍后，探险地图会在这里出现。</div>';return}const total=Math.max(1,Number(book.total)||1),current=Math.max(0,Math.min(total,Number(book.current)||0)),stops=8,completed=Math.min(stops-1,Math.floor(current/total*(stops-1)));const coords=[[10,72],[23,35],[37,67],[51,28],[65,64],[78,32],[89,62],[94,20]],names=["启程营地","故事森林","词语山谷","人物小镇","线索河湾","主题高地","回顾灯塔","完成城堡"];const points=coords.map(p=>p.join(" ")).join(" L ");map.innerHTML=`<svg class="journey-map-route" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M ${points}"></path></svg>`+coords.map((p,i)=>`<div class="journey-map-stop ${i<completed?"done":i===completed?"current":""}" style="left:${p[0]}%;top:${p[1]}%"><i>${i+1}</i><b>${names[i]}</b><small>${i<completed?"已到达":i===completed?"当前位置":"待探索"}</small></div>`).join("")+`<img class="journey-map-marker" src="assets/leo_mochi_logo.png" alt="Leo" style="left:${coords[completed][0]}%;top:${coords[completed][1]}%">`;const sub=$("journeyMapSubtitle");if(sub)sub.textContent=`${book.title} · Chapter ${current} / ${total}`}
+function renderReadingGuide(){const out=$("readingGuideContent");if(!out)return;const b=data.novelBooks.find(x=>x.id===Number(activeGuideBookId));if(!b){closeReadingGuide();return}const total=Math.max(1,Number(b.total)||1),current=Math.max(0,Math.min(total,Number(b.current)||0)),pct=Math.round(current/total*100);const chapterEntries=(data.chapters||[]).filter(c=>(c.book||"").trim().toLowerCase()===(b.title||"").trim().toLowerCase()).sort((a,z)=>(a.date||"").localeCompare(z.date||""));const recent=chapterEntries.slice(-4);const next=Math.min(current+1,total);out.innerHTML=`<section class="reading-guide-hero"><div class="guide-cover">${b.cover?`<img src="${journeyEsc(b.cover)}" alt="${journeyEsc(b.title)} 封面">`:journeyEsc(b.title)}</div><div class="guide-hero-copy"><div class="journey-kicker">Reading Guide</div><h2>${journeyEsc(b.title)}</h2><p>${journeyEsc(b.author||"")} · 当前 Chapter ${current} / ${total}</p><div class="guide-progress-line"><span style="width:${pct}%"></span><b>${pct}%</b></div><div class="guide-actions"><button class="btn primary" onclick="addJourneyChapter(${b.id})">开始 Chapter ${next}</button><button class="btn" onclick="editJourneyBook(${b.id})">编辑进度</button><button class="btn" onclick="uploadJourneyCover(${b.id})">${b.cover?"更换封面":"添加封面"}</button></div></div></section><div class="guide-flow"><section class="guide-stage"><div class="guide-stage-number">1</div><h3>读前：确定方向</h3><p>开始前只做一件事：带着一个问题进入本章。</p><ul><li>我预测会发生什么？</li><li>今天重点留意谁或什么线索？</li></ul></section><section class="guide-stage"><div class="guide-stage-number">2</div><h3>读中：留下证据</h3><p>阅读时集中记录，不建立重复模块。</p><ul><li>三个值得积累的词</li><li>一句喜欢的原文</li><li>一个人物、主题或问题笔记</li></ul></section><section class="guide-stage"><div class="guide-stage-number">3</div><h3>读后：形成理解</h3><p>用一句总结和一句反思完成这一章。</p><ul><li>这一章主要发生了什么？</li><li>我的最大新发现是什么？</li></ul></section></div><section class="guide-chapters"><div class="guide-chapters-head"><div><h3>章节导览</h3><p class="small">阅读记录按章节保留；词汇和好句会自动汇入原有资料。</p></div><button class="btn primary" onclick="addJourneyChapter(${b.id})">新增本章记录</button></div><div class="guide-chapter-list">${recent.length?recent.map((c,i)=>`<article class="guide-chapter ${c.done?"done":i===recent.length-1?"current":""}"><div class="guide-chapter-index">${c.done?"✓":i+1}</div><div><strong>${journeyEsc(c.name||"Chapter")}</strong><small>${journeyEsc(c.date||"")} · ${c.minutes||10} 分钟${c.oneThought?" · 已完成反思":""}</small></div><button onclick="openChapterModal(${c.id})">打开导览</button></article>`).join(""):`<div class="journey-empty">还没有章节记录。点击“开始 Chapter ${next}”进入第一章导览。</div>`}</div></section>`}
+// Replace the previous novel renderer with the Journey hub renderer.
+function renderNovel(){renderReadingJourney();if(activeGuideBookId)renderReadingGuide()}
+</script>
+
 </body>
 <style>
 /* V15 dashboard redesign based on the approved project-board mockup. */
-body.home-mode .hero{display:none!important}
+body:not(.week-mode) .hero{display:none!important}
+body.week-mode .hero{display:block!important}
 body.home-mode .main{padding-top:22px}
 .dashboard-sidebar{width:205px;background:#fff;border:1px solid #dbe6f5;border-radius:18px;margin:10px;min-height:calc(100vh - 20px);box-shadow:0 4px 18px rgba(69,95,130,.06)}
 .dashboard-brand{padding:16px 12px 12px;text-align:center}.dashboard-brand img{width:132px;height:110px;object-fit:cover;object-position:center;border-radius:16px}.dashboard-brand b{display:block;font-size:18px;margin-top:7px;color:#142a50}
 .dashboard-nav{padding:8px}.dashboard-nav button{border-radius:10px;padding:11px 12px;margin:2px 0;color:#283b5b}.dashboard-nav button.active{background:#eaf3ff;color:#2871d6}.dashboard-profile{margin:auto 14px 16px;padding:12px;border:1px solid #d6e3f7;border-radius:14px;background:#f8fbff;display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:center}.profile-avatar img{width:40px;height:40px;border-radius:50%;object-fit:cover}.profile-btn{grid-column:1/-1;border:1px solid #bcd3f4;background:#eef5ff;color:#2264c7;border-radius:9px;padding:8px}
 .dashboard-home{max-width:1280px;margin:0 auto}.dashboard-welcome{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}.dashboard-welcome h1{font-size:30px;color:#102342;margin:0 0 6px}.dashboard-welcome p{margin:0;color:#364965}.dashboard-head-actions{display:flex;gap:12px}.clean-btn{background:#fff;border:1px solid #d6dfeb;border-radius:9px;padding:10px 16px;color:#27364c;box-shadow:0 2px 5px rgba(36,60,90,.04)}
 .goal-board{min-height:235px;display:grid;grid-template-columns:310px 1fr 145px;gap:14px;border:1.5px solid #a9d4ff;border-radius:15px;background:linear-gradient(100deg,#e8f6ff 0,#f8fbff 55%,#fff 100%);overflow:hidden;padding:0 20px 0 0}.goal-art{align-self:stretch;overflow:hidden}.goal-art img{width:100%;height:100%;object-fit:cover;object-position:center}.goal-content{padding:22px 0}.goal-content h2{text-align:center;margin:0 0 18px;color:#132d53}.goal-metrics{display:grid;grid-template-columns:repeat(5,1fr)}.goal-metric{display:flex;flex-direction:column;align-items:center;gap:6px;border-left:1px solid #dae4ef}.goal-metric:first-child{border-left:none}.goal-icon{font-weight:800;font-size:23px;color:#6d43c7}.goal-metric b{font-size:29px;color:#1b59c6}.goal-metric small{color:#53647a}.complete-box{align-self:center;border:1px solid #b9dfbd;background:#f2fff3;border-radius:13px;padding:18px 10px;text-align:center;display:flex;flex-direction:column;gap:7px}.complete-box .cup-icon{font-size:27px;color:#d99500}.complete-box b{font-size:32px;color:#189344}.complete-box small{color:#4e6455}
-.dashboard-section-title{font-size:21px;color:#17375e;margin:24px 0 16px}.dashboard-board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.board-card{border-radius:14px;overflow:hidden;min-height:290px;border:1px solid;box-shadow:0 5px 15px rgba(60,80,105,.05)}.task-board{background:#fffaf0;border-color:#f0d89e}.challenge-board{background:#faf7ff;border-color:#d9c9f4}.growth-board{background:#f5fff6;border-color:#bee6c4}.reading-board{background:#f4fbff;border-color:#afd8ff}.week-board{background:#f5fff5;border-color:#bfe4c3}.journey-board{background:#fffaf0;border-color:#efd096}.board-title{height:60px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.48);border-bottom:1px solid rgba(0,0,0,.06)}.board-title h3{margin:0;font-size:19px}.board-title button,.board-title span,.board-footer button{border:0;background:none;color:#6b4dcc;cursor:pointer}.task-board .board-title button,.journey-board .board-title button{color:#98631d}.growth-board .board-title span,.growth-board .board-footer button{color:#18823b}.board-body{padding:10px 14px}.board-footer{padding:9px 18px 15px;color:#775b2c}.board-task-row{display:grid;grid-template-columns:5px 50px 30px 1fr auto;gap:9px;align-items:center;background:#fff;border-bottom:1px solid #eee;padding:10px 8px;border-radius:4px}.color-bar{width:4px;height:37px;border-radius:6px}.bar-0{background:#ffad13}.bar-1{background:#35b66a}.bar-2{background:#8a51d6}.bar-3{background:#3c83e7}.task-symbol{font-weight:700;color:#304e79}.task-tag{font-size:12px;padding:5px 8px;border-radius:6px}.tag-0{background:#fff0cb;color:#c77800}.tag-1{background:#def6e4;color:#198644}.tag-2{background:#eee3ff;color:#7742b7}.tag-3{background:#e3efff;color:#2469be}.is-done{opacity:.65}.challenge-row{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid #e8e2ef;border-radius:9px;padding:9px;margin-bottom:9px}.date-box{border:1px solid #ddd;border-radius:8px;text-align:center;overflow:hidden}.date-box b{display:block;background:#f1f3f7;font-size:12px;padding:2px}.date-box span{font-size:21px;font-weight:700}.challenge-row small{display:block;color:#637086;margin-top:4px}.challenge-row strong{color:#f04444;font-size:13px}.growth-row{display:grid;grid-template-columns:30px 1fr auto;align-items:center;background:#fff;border-bottom:1px solid #e1eee2;padding:10px;border-radius:5px}.growth-row span{color:#167f45;font-weight:700}.growth-row strong{font-size:21px;color:#126832}.growth-row small{font-size:13px;color:#52675b}.current-reading{padding:15px 20px;display:grid;grid-template-columns:105px 1fr;gap:20px;align-items:center}.novel-cover{width:100px;height:148px;object-fit:cover;border-radius:5px;box-shadow:0 6px 14px rgba(20,50,80,.18)}.current-reading h3{font-size:23px;margin:0 0 5px}.current-reading p{margin:0 0 14px}.reading-progress{height:8px;background:#dfe8ef;border-radius:8px;overflow:hidden;margin:8px 0}.reading-progress span{display:block;height:100%;background:#3a82e4;border-radius:8px}.current-reading button,.week-board button,.journey-inner button{margin-top:12px;padding:8px 18px;border:1px solid #7eb1ee;background:#fff;color:#2565c2;border-radius:7px}.week-board #dashboardWeekCard{padding:28px}.week-board #dashboardWeekCard p{display:flex;justify-content:space-between}.week-progress span{background:#36a85d}.journey-inner{padding:18px;display:grid;grid-template-columns:180px 1fr;align-items:center;gap:15px}.journey-inner img{width:180px;height:155px;object-fit:cover;border-radius:13px}.journey-inner b{line-height:1.8}.journey-inner button{border-color:#e4a657;color:#a45f00}.dashboard-motto{margin-top:14px;border:1px solid #b9dafb;background:#f1f8ff;color:#2671c8;border-radius:9px;text-align:center;padding:8px}.empty-state{padding:28px;text-align:center;color:#77869a}
+.dashboard-section-title{font-size:21px;color:#17375e;margin:24px 0 16px}.dashboard-board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.board-card{border-radius:14px;overflow:hidden;min-height:290px;border:1px solid;box-shadow:0 5px 15px rgba(60,80,105,.05)}.task-board{background:#fffaf0;border-color:#f0d89e}.challenge-board{background:#faf7ff;border-color:#d9c9f4}.growth-board{background:#f5fff6;border-color:#bee6c4}.reading-board{background:#f4fbff;border-color:#afd8ff}.week-board{background:#f5fff5;border-color:#bfe4c3}.journey-board{background:#fffaf0;border-color:#efd096}.board-title{height:60px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.48);border-bottom:1px solid rgba(0,0,0,.06)}.board-title h3{margin:0;font-size:19px}.board-title button,.board-title span,.board-footer button{border:0;background:none;color:#6b4dcc;cursor:pointer}.task-board .board-title button,.journey-board .board-title button{color:#98631d}.growth-board .board-title span,.growth-board .board-footer button{color:#18823b}.board-body{padding:10px 14px}.board-footer{padding:9px 18px 15px;color:#775b2c}.board-task-row{display:grid;grid-template-columns:5px 50px 30px 1fr auto;gap:9px;align-items:center;background:#fff;border-bottom:1px solid #eee;padding:10px 8px;border-radius:4px}.color-bar{width:4px;height:37px;border-radius:6px}.bar-0{background:#ffad13}.bar-1{background:#35b66a}.bar-2{background:#8a51d6}.bar-3{background:#3c83e7}.task-symbol{font-weight:700;color:#304e79}.task-tag{font-size:12px;padding:5px 8px;border-radius:6px}.tag-0{background:#fff0cb;color:#c77800}.tag-1{background:#def6e4;color:#198644}.tag-2{background:#eee3ff;color:#7742b7}.tag-3{background:#e3efff;color:#2469be}.is-done{opacity:.65}.challenge-row{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid #e8e2ef;border-radius:9px;padding:9px;margin-bottom:9px}.date-box{border:1px solid #ddd;border-radius:8px;text-align:center;overflow:hidden}.date-box b{display:block;background:#f1f3f7;font-size:12px;padding:2px}.date-box span{font-size:21px;font-weight:700}.challenge-row small{display:block;color:#637086;margin-top:4px}.challenge-row strong{color:#f04444;font-size:13px}.growth-row{display:grid;grid-template-columns:30px 1fr auto;align-items:center;background:#fff;border-bottom:1px solid #e1eee2;padding:10px;border-radius:5px}.growth-row span{color:#167f45;font-weight:700}.growth-row .growth-dot{width:7px;height:7px;border-radius:50%;background:#43a765;display:block;justify-self:center}.growth-row strong{font-size:21px;color:#126832}.growth-row small{font-size:13px;color:#52675b}.current-reading{padding:15px 20px;display:grid;grid-template-columns:105px 1fr;gap:20px;align-items:center}.novel-cover{width:100px;height:148px;object-fit:cover;border-radius:5px;box-shadow:0 6px 14px rgba(20,50,80,.18)}.current-reading h3{font-size:23px;margin:0 0 5px}.current-reading p{margin:0 0 14px}.reading-progress{height:8px;background:#dfe8ef;border-radius:8px;overflow:hidden;margin:8px 0}.reading-progress span{display:block;height:100%;background:#3a82e4;border-radius:8px}.current-reading button,.week-board button,.journey-inner button{margin-top:12px;padding:8px 18px;border:1px solid #7eb1ee;background:#fff;color:#2565c2;border-radius:7px}.week-board #dashboardWeekCard{padding:28px}.week-board #dashboardWeekCard p{display:flex;justify-content:space-between}.week-progress span{background:#36a85d}.journey-inner{padding:18px;display:grid;grid-template-columns:180px 1fr;align-items:center;gap:15px}.journey-inner img{width:180px;height:155px;object-fit:cover;border-radius:13px}.journey-inner b{line-height:1.8}.journey-inner button{border-color:#e4a657;color:#a45f00}.dashboard-motto{margin-top:14px;border:1px solid #b9dafb;background:#f1f8ff;color:#2671c8;border-radius:9px;text-align:center;padding:8px}.empty-state{padding:28px;text-align:center;color:#77869a}
 @media(max-width:1100px){.goal-board{grid-template-columns:230px 1fr}.complete-box{display:none}.dashboard-board-grid{grid-template-columns:1fr 1fr}.dashboard-sidebar{width:180px}.goal-metrics{grid-template-columns:repeat(3,1fr);row-gap:15px}}
 @media(max-width:760px){.dashboard-sidebar{position:relative;width:auto;min-height:auto;margin:8px}.app{display:block}.dashboard-nav{display:flex;overflow:auto}.dashboard-nav button{min-width:130px}.dashboard-profile{display:none}.goal-board{display:block;padding:0}.goal-art{height:180px}.goal-metrics{grid-template-columns:repeat(2,1fr)}.dashboard-board-grid{grid-template-columns:1fr}.dashboard-welcome{padding:0 10px}.dashboard-head-actions{display:none}.dashboard-home{padding:0 10px}.board-card{min-height:auto}}
 </style>
@@ -2721,4 +3245,164 @@ body.home-mode .main{padding-top:22px}
 .hero-side-art.v11-art,.home-character,.novel-character,.side-card:before{background-size:contain!important;background-position:center bottom!important;background-repeat:no-repeat!important;}
 .hero-side-art.v11-art{overflow:visible!important;}
 /* Character artwork is decorative only; dates remain normal form text and are never drawn over the image. */
+
+/* ===== V21 STORYBOOK EDITION ALPHA ===== */
+:root{
+ --v21-forest:#214d3a;--v21-forest-2:#356b4f;--v21-moss:#779568;
+ --v21-wood:#71472d;--v21-wood-2:#a66f43;--v21-paper:#fffaf0;
+ --v21-sky:#dceef0;--v21-gold:#d3a84e;--v21-ink:#263a32;
+ --v21-line:rgba(83,59,38,.20);--v21-shadow:0 18px 45px rgba(55,42,29,.14)
+}
+body{background:linear-gradient(180deg,#dceef0 0,#edf4e7 42%,#f5eedf 100%);color:var(--v21-ink)}
+.app{grid-template-columns:236px minmax(0,1fr)}
+.sidebar{background:
+ linear-gradient(90deg,rgba(255,255,255,.05),transparent 14%,transparent 86%,rgba(0,0,0,.08)),
+ repeating-linear-gradient(90deg,#6f452c 0 22px,#784b30 22px 44px,#694029 44px 66px);
+ border-right:4px solid #4c2f20;padding:20px 16px;box-shadow:8px 0 24px rgba(51,33,22,.18)}
+.dashboard-brand{background:#f8eccf!important;border:2px solid #4f3424!important;border-radius:18px!important;padding:12px!important;box-shadow:0 7px 0 #4f3424,0 15px 26px rgba(35,22,14,.24)!important}
+.dashboard-brand img{border-radius:14px!important;filter:saturate(.82) contrast(.97)}
+.dashboard-brand b{font-family:Georgia,"Songti SC",serif!important;color:#214d3a!important;font-size:17px!important;letter-spacing:.02em}
+.dashboard-nav{gap:9px!important;margin-top:22px!important}
+.dashboard-nav button{color:#fff8e8!important;background:rgba(255,248,232,.08)!important;border:1px solid rgba(255,255,255,.10)!important;border-radius:11px!important;padding:11px 12px!important;box-shadow:none!important}
+.dashboard-nav button:hover{background:rgba(255,248,232,.16)!important;transform:translateX(3px)}
+.dashboard-nav button.active{background:#f8eccf!important;color:#214d3a!important;border-color:#3c2b20!important;box-shadow:0 5px 0 #3e2b1f!important}
+.dashboard-nav .nav-icon{background:#fff8e8;border-radius:8px;padding:3px}
+.dashboard-profile{background:#f8eccf!important;border:2px solid #4f3424!important;border-radius:15px!important;color:#263a32!important;box-shadow:0 6px 0 #4f3424!important}
+.main{padding:0 28px 40px;background:transparent}
+.hero{margin:0 -28px 22px;padding:25px 30px 26px;min-height:168px;background:
+ radial-gradient(circle at 87% 16%,rgba(255,255,255,.75),transparent 15%),
+ linear-gradient(135deg,#d9ebe0,#b9dbe0 68%,#f4e6bd);border-bottom:0;box-shadow:0 10px 28px rgba(45,72,58,.11)}
+.hero:before{bottom:-30px;height:100px;opacity:.72}
+.hero:after{content:"";position:absolute;right:56px;bottom:5px;width:130px;height:142px;background:url('assets/dashboard_goal_art.jpg') center 28%/cover;border-radius:46% 46% 22px 22px;border:5px solid rgba(255,250,240,.92);box-shadow:0 12px 30px rgba(36,56,42,.22);transform:rotate(1deg)}
+.hero-side-art,.hero-boy{display:none!important}
+.topbar{padding-right:170px;align-items:center}
+.hero h1,#weekTitle{font-size:38px!important;color:#214d3a!important;margin:4px 0 8px!important}
+.hero .subtitle{font-size:15px;color:#425f50;max-width:720px}
+.top-actions .btn{background:#fffaf0;border:1px solid #73533a;border-radius:9px;box-shadow:0 4px 0 #73533a}
+.progress-card{background:rgba(255,250,240,.9)!important;border:1px solid rgba(73,54,38,.25)!important}
+.page{animation:v21page .26s ease}
+@keyframes v21page{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.card,.board-card,.novel-tab-card,.parchment-card,.journal-shell{border:1px solid var(--v21-line)!important;box-shadow:var(--v21-shadow)!important;background:rgba(255,250,240,.96)!important}
+.dashboard-welcome{padding:4px 2px 14px!important}
+.dashboard-welcome h1{font-family:Georgia,"Songti SC",serif!important;color:#214d3a!important;font-size:31px!important}
+.clean-btn,.btn{border-radius:9px!important}
+.goal-board{background:linear-gradient(110deg,#fff8e8,#f2e5c5)!important;border:1px solid #987150!important;border-radius:20px!important;box-shadow:var(--v21-shadow)!important;overflow:hidden}
+.goal-art img{filter:saturate(.83);object-fit:cover}
+.goal-content h2,.dashboard-section-title{font-family:Georgia,"Songti SC",serif;color:#214d3a!important;letter-spacing:.01em}
+.dashboard-section-title{font-size:24px!important;margin:28px 0 14px!important}
+.dashboard-board-grid{gap:18px!important}
+.board-card{border-radius:18px!important;overflow:hidden}
+.board-title{background:#f3e8cf!important;border-bottom:1px solid #cfb98f!important;padding:14px 16px!important}
+.board-title h3{color:#294f3c!important}
+.board-title button,.board-footer button{color:#315f49!important}
+.section-title-card,.novel-hero{position:relative;min-height:176px;padding:28px 210px 28px 30px!important;border-radius:22px!important;background:linear-gradient(115deg,#fffaf0,#efe2c3)!important;border:1px solid #9c7654!important;box-shadow:var(--v21-shadow)!important;overflow:hidden}
+.section-title-card h2,.novel-hero h2{font-family:Georgia,"Songti SC",serif!important;font-size:34px!important;color:#214d3a!important;margin:4px 0 9px!important}
+.section-title-card:before,.novel-hero:before{content:"";position:absolute;right:34px;bottom:15px;width:142px;height:142px;border-radius:50% 50% 22px 22px;background:url('assets/dashboard_goal_art.jpg') center 32%/cover;border:5px solid #fffaf0;box-shadow:0 12px 24px rgba(56,43,28,.20)}
+.art-library:after,.art-tasks:after,.art-challenge:after,.art-progress:after,.art-mistake:after,.novel-hero:after{content:"";position:absolute;right:16px;bottom:8px;width:76px;height:48px;border-radius:50%;background:rgba(50,101,73,.16);filter:blur(1px)}
+.novel-hero-art{display:none!important}.novel-hero-copy{max-width:780px}
+.novel-tabs{background:#6d452d!important;border:2px solid #4d3122!important;border-radius:12px!important;padding:7px!important;gap:6px!important;box-shadow:0 8px 0 #4d3122!important;margin:18px 0 24px!important}
+.novel-tab-btn{color:#fff7e6!important;border-radius:7px!important;padding:11px 16px!important}
+.novel-tab-btn.active{background:#f8eccf!important;color:#214d3a!important;box-shadow:0 3px 0 #3d2a1f!important}
+.curriculum-toolbar{margin-top:18px!important;background:#f8eccf!important;border:1px solid #9a7351!important;border-radius:14px!important;padding:15px 18px!important}
+.curriculum-shelf{position:relative;background:
+ linear-gradient(90deg,rgba(255,255,255,.05),transparent 10%,transparent 90%,rgba(0,0,0,.09)),
+ repeating-linear-gradient(90deg,#794b30 0 34px,#71452c 34px 68px,#845437 68px 102px)!important;
+border:8px solid #4d3020!important;border-radius:18px!important;padding:30px 28px 48px!important;gap:18px!important;min-height:330px;box-shadow:inset 0 8px 18px rgba(0,0,0,.23),0 20px 40px rgba(66,42,27,.2)!important}
+.curriculum-shelf:before,.curriculum-shelf:after{content:"";position:absolute;left:12px;right:12px;height:18px;background:#563521;border:2px solid #3f281b;box-shadow:0 6px 10px rgba(0,0,0,.28)}
+.curriculum-shelf:before{top:48%}.curriculum-shelf:after{bottom:13px}
+.curriculum-book{position:relative;z-index:1;min-height:232px!important;width:142px!important;border-radius:7px 12px 5px 5px!important;padding:20px 13px 13px!important;background:linear-gradient(90deg,#315f49,#477a5f 15%,#5e8c6f 84%,#274c3a)!important;border:2px solid #203a2d!important;box-shadow:8px 10px 0 rgba(37,23,15,.23)!important;display:flex!important;flex-direction:column!important;justify-content:space-between!important;transform-origin:bottom;transition:.2s}
+.curriculum-book:nth-child(4n+2){background:linear-gradient(90deg,#8b4e3d,#b56c50 15%,#ca8060 84%,#704032)!important}
+.curriculum-book:nth-child(4n+3){background:linear-gradient(90deg,#3b6173,#59849a 15%,#79a3b5 84%,#315363)!important}
+.curriculum-book:nth-child(4n+4){background:linear-gradient(90deg,#80633b,#b08b50 15%,#c7a45f 84%,#684f30)!important}
+.curriculum-book:hover{transform:translateY(-9px) rotate(-1deg)}
+.curriculum-book h3,.curriculum-book .book-meta,.curriculum-book .book-percent{color:#fffaf0!important;text-shadow:0 1px rgba(0,0,0,.28)}
+.curriculum-book h3{writing-mode:horizontal-tb;font-family:Georgia,"Songti SC",serif;font-size:19px!important;line-height:1.25}
+.curriculum-book .toolbar{display:grid!important;grid-template-columns:1fr!important;gap:5px!important}
+.curriculum-book .btn{font-size:11px!important;padding:6px!important;box-shadow:none!important;background:rgba(255,250,240,.92)!important;color:#274335!important}
+.book-progress{background:rgba(255,255,255,.25)!important}.book-progress span{background:#f3d889!important}
+.grid2{gap:18px!important}.grid2>.card{border-radius:18px!important}
+input,select,textarea{background:#fffdf7!important;border:1px solid #bea98b!important;border-radius:9px!important}
+.modal-card{background:#fffaf0!important;border:2px solid #6f4a31!important;border-radius:18px!important;box-shadow:0 24px 80px rgba(42,27,18,.35)!important}
+.reward-pill{background:#214d3a!important;color:#fffaf0!important;border:0!important}
+.reward-stat,.mistake-stat{background:#fffaf0!important;border:1px solid #b79d79!important;border-radius:14px!important}
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.dashboard-nav{grid-template-columns:repeat(3,1fr)!important}.main{padding:0 14px 28px}.hero{margin:0 -14px 16px;padding:20px 18px}.hero:after{display:none}.topbar{padding-right:0}.section-title-card,.novel-hero{padding:22px 22px 160px!important}.section-title-card:before,.novel-hero:before{right:50%;transform:translateX(50%);bottom:12px;width:120px;height:120px}.curriculum-shelf{overflow-x:auto;display:flex!important;align-items:flex-end}.curriculum-book{flex:0 0 138px}.dashboard-board-grid{grid-template-columns:1fr!important}}
+
+/* V21.1 layout refinements */
+.dashboard-nav button{display:flex!important;align-items:center!important;gap:10px!important;white-space:nowrap!important;overflow:hidden!important}
+.dashboard-nav button span{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block!important;min-width:0}
+.curriculum-shelf{align-items:flex-end!important;grid-template-columns:repeat(auto-fill,minmax(168px,1fr))!important}
+.curriculum-book{width:auto!important;min-width:158px!important;max-width:190px!important;min-height:205px!important;aspect-ratio:4/5!important;padding:17px 14px 13px!important}
+.curriculum-book h3{font-size:17px!important;line-height:1.3!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.curriculum-book .book-meta{font-size:12px!important}.curriculum-book .toolbar{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.challenge-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:18px 0;padding:18px 20px!important}.challenge-toolbar h3{margin:0 0 4px}.challenge-toolbar p{margin:0}
+.challenge-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px}.challenge-summary{padding:20px!important;height:max-content}.challenge-summary h3{margin-top:0}.challenge-summary-grid{display:grid;gap:12px}.challenge-summary-grid>div{background:#f3ead6;border:1px solid #d6c09c;border-radius:13px;padding:15px;text-align:center}.challenge-summary-grid b{display:block;font-size:30px;color:#214d3a}.challenge-summary-grid span{display:block;font-size:12px;color:#6c705f;margin-top:3px}.challenge-list-card{padding:18px!important}.challenge-list-head{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:12px}.challenge-list-head h3{margin:0}.challenge-card{display:grid;grid-template-columns:78px minmax(0,1fr);gap:15px;padding:14px;border:1px solid #d8c7a8;border-radius:15px;background:#fffdf7;margin-bottom:12px}.challenge-date{border:1px solid #b89a72;border-radius:12px;overflow:hidden;text-align:center;background:#f3ead6;height:max-content}.challenge-date span{display:block;background:#315f49;color:#fffaf0;padding:4px;font-size:12px}.challenge-date b{display:block;font-size:28px;color:#264b3a;padding-top:5px}.challenge-date small{display:block;padding:0 0 7px;color:#6e6658}.challenge-topline{display:flex;align-items:center;justify-content:space-between;gap:10px}.challenge-subject{padding:4px 8px;border-radius:999px;background:#e3eee6;color:#315f49;font-size:12px;font-weight:700}.challenge-topline strong{font-size:12px;color:#b34a2d}.challenge-topline strong.ended{color:#7b7b72}.challenge-main h4{margin:8px 0 5px;font-size:18px}.challenge-main p{margin:0 0 10px;color:#5f665e;line-height:1.55}.challenge-actions{display:flex;gap:7px;flex-wrap:wrap}.challenge-actions .btn{padding:6px 10px!important;font-size:12px!important}
+@media(max-width:900px){.dashboard-nav button{min-width:145px!important}.curriculum-book{flex:0 0 165px!important;max-width:165px!important;min-height:205px!important}.challenge-layout{grid-template-columns:1fr}.challenge-summary-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.challenge-toolbar{align-items:flex-start;flex-direction:column}.challenge-toolbar .btn{width:100%}.challenge-summary-grid{grid-template-columns:1fr}.challenge-card{grid-template-columns:66px minmax(0,1fr)}.challenge-date b{font-size:23px}.challenge-list-head{align-items:flex-start;flex-direction:column}}
+
+/* V21.2 final layout corrections — restore V20.4 navigation and today goal */
+.dashboard-sidebar{width:205px!important;background:#fff!important;border:1px solid #dbe6f5!important;border-radius:18px!important;margin:10px!important;min-height:calc(100vh - 20px)!important;box-shadow:0 4px 18px rgba(69,95,130,.06)!important;padding:0!important}
+.dashboard-brand{padding:14px 12px 8px!important;background:transparent!important;color:#243b5a!important;border:0!important}
+.dashboard-brand img{width:44px!important;height:44px!important;border-radius:12px!important;object-fit:cover!important}
+.dashboard-nav{padding:8px!important;display:block!important}
+.dashboard-nav button{width:100%!important;display:grid!important;grid-template-columns:25px minmax(0,1fr)!important;align-items:center!important;gap:10px!important;border-radius:10px!important;padding:11px 12px!important;margin:2px 0!important;color:#283b5b!important;background:transparent!important;border:0!important;white-space:nowrap!important;text-align:left!important;min-width:0!important}
+.dashboard-nav button span{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;line-height:1.25!important}
+.dashboard-nav button.active{background:#eaf3ff!important;color:#2871d6!important;box-shadow:none!important}
+.dashboard-nav .nav-icon{width:21px!important;height:21px!important;flex:0 0 21px!important}
+.dashboard-profile{margin:auto 14px 16px!important;padding:12px!important;border:1px solid #d6e3f7!important;border-radius:14px!important;background:#f8fbff!important;display:grid!important;grid-template-columns:42px 1fr!important;gap:8px!important;align-items:center!important}
+.profile-avatar img{width:40px!important;height:40px!important;border-radius:50%!important;object-fit:cover!important}.profile-btn{grid-column:1/-1!important}
+.goal-board{min-height:235px!important;display:grid!important;grid-template-columns:310px minmax(0,1fr) 145px!important;gap:14px!important;border:1.5px solid #a9d4ff!important;border-radius:15px!important;background:linear-gradient(100deg,#e8f6ff 0,#f8fbff 55%,#fff 100%)!important;overflow:hidden!important;padding:0 20px 0 0!important;box-shadow:none!important}
+.goal-art{align-self:stretch!important;overflow:hidden!important;min-height:235px!important}.goal-art img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}
+.goal-content{padding:22px 0!important}.goal-content h2{text-align:center!important;margin:0 0 18px!important;color:#132d53!important;font-size:25px!important}
+.goal-metrics{display:grid!important;grid-template-columns:repeat(5,1fr)!important}.goal-metric{display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;border-left:1px solid #dae4ef!important}.goal-metric:first-child{border-left:none!important}.goal-metric b{font-size:29px!important;color:#1b59c6!important}.goal-metric small{color:#53647a!important}.complete-box{align-self:center!important}
+/* remove the accidental character from Settings */
+.art-settings:before,.art-settings:after,#settings .section-title-card:before,#settings .section-title-card:after{display:none!important}
+/* use a clean original illustration for Learning Journey */
+.journey-inner img{width:170px!important;height:150px!important;object-fit:contain!important;background:#eef5e9!important;border:1px solid #d6e2cf!important;padding:8px!important;border-radius:14px!important}
+/* clearer reading journal text */
+.journal-shell{background:#665235!important}.journal-book{background:#fff8e8!important}.journal-page{color:#30291f!important;background:linear-gradient(90deg,rgba(255,255,255,.5),transparent 18%),repeating-linear-gradient(0deg,transparent 0,transparent 31px,rgba(85,65,35,.095) 32px)!important}.journal-kicker{color:#5c4428!important;font-size:13px!important}.journal-title{color:#2d2419!important;font-size:30px!important}.journal-label{color:#4d371f!important;font-size:14px!important}.journal-note,.journal-note.blue,.journal-note.rose{color:#30291f!important}.journal-note .small,.journal-page .small{color:#554936!important}.novel-tab-card h3[style*="color:#fff"]{color:#fff!important;text-shadow:0 1px 3px rgba(0,0,0,.45)!important}.novel-tab-card p[style*="color:#efe4cb"]{color:#fff8e8!important;text-shadow:0 1px 3px rgba(0,0,0,.45)!important;font-size:14px!important}
+/* new bookshelf template — no heavy horizontal bars */
+.curriculum-shelf{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))!important;gap:20px!important;padding:24px!important;background:linear-gradient(180deg,#f8f3e8,#eee3ce)!important;border:1px solid #d8c8aa!important;border-radius:20px!important;min-height:260px!important;align-items:stretch!important}
+.curriculum-shelf:before,.curriculum-shelf:after{display:none!important}
+.curriculum-book{width:auto!important;min-width:0!important;max-width:none!important;min-height:245px!important;aspect-ratio:auto!important;border-radius:16px!important;padding:20px 16px 16px!important;background:linear-gradient(155deg,#47765e,#2f5744)!important;border:1px solid rgba(35,65,50,.55)!important;box-shadow:0 10px 22px rgba(63,49,31,.16),inset 6px 0 rgba(255,255,255,.1)!important;transform:none!important}
+.curriculum-book:nth-child(4n+2){background:linear-gradient(155deg,#6f85ad,#435f8a)!important}.curriculum-book:nth-child(4n+3){background:linear-gradient(155deg,#b47560,#81503f)!important}.curriculum-book:nth-child(4n+4){background:linear-gradient(155deg,#9679ad,#66517c)!important}.curriculum-book::before{display:none!important}.curriculum-book:hover{transform:translateY(-4px)!important}.curriculum-book h3{font-size:19px!important;line-height:1.3!important;margin:14px 0 8px!important}.curriculum-book .toolbar{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}.curriculum-book .btn{white-space:nowrap!important;padding:7px 5px!important}
+/* always-visible mouse scrollbar for weekly plan */
+.week-mouse-scroll{position:sticky;bottom:4px;z-index:8;margin:8px 2px 0;padding:6px 10px;background:#f5eddd;border:1px solid #d7c5a6;border-radius:12px;box-shadow:0 4px 12px rgba(65,48,28,.12)}
+.week-mouse-scroll input{display:block;width:100%;height:18px;cursor:grab;accent-color:#6b8b6d}.week-mouse-scroll input:active{cursor:grabbing}
+@media(max-width:1100px){.goal-board{grid-template-columns:230px 1fr!important}.complete-box{display:none!important}.goal-metrics{grid-template-columns:repeat(3,1fr)!important;row-gap:15px!important}}
+@media(max-width:900px){.dashboard-sidebar{position:relative!important;width:auto!important;height:auto!important;min-height:auto!important;margin:8px!important}.dashboard-nav{display:flex!important;overflow-x:auto!important;gap:4px!important}.dashboard-nav button{flex:0 0 auto!important;width:auto!important;min-width:145px!important}.dashboard-profile{display:none!important}.goal-board{display:block!important;padding:0!important}.goal-art{height:180px!important;min-height:180px!important}.goal-metrics{grid-template-columns:repeat(2,1fr)!important}.curriculum-shelf{display:flex!important;overflow-x:auto!important}.curriculum-book{flex:0 0 190px!important}.week-mouse-scroll{display:block!important}}
+</style>
+
+<style>
+/* V21.3 final usability refinements */
+.app{grid-template-columns:260px minmax(0,1fr)!important}
+.dashboard-sidebar,.sidebar{width:260px!important;min-width:260px!important;background:linear-gradient(90deg,rgba(255,255,255,.05),transparent 14%,transparent 86%,rgba(0,0,0,.08)),repeating-linear-gradient(90deg,#6f452c 0 22px,#784b30 22px 44px,#694029 44px 66px)!important;border:0!important;border-right:4px solid #4c2f20!important;border-radius:0!important;margin:0!important;padding:18px 14px!important;box-shadow:8px 0 24px rgba(51,33,22,.18)!important}
+.dashboard-brand{background:#f8eccf!important;border:2px solid #4f3424!important;border-radius:16px!important;padding:12px!important;box-shadow:0 6px 0 #4f3424!important}
+.dashboard-brand b{color:#214d3a!important}
+.dashboard-nav{display:block!important;padding:10px 0!important;margin-top:14px!important}
+.dashboard-nav button{width:100%!important;display:grid!important;grid-template-columns:24px 1fr!important;gap:10px!important;align-items:center!important;padding:11px 12px!important;margin:4px 0!important;border-radius:10px!important;color:#fff8e8!important;background:rgba(255,248,232,.08)!important;border:1px solid rgba(255,255,255,.12)!important;white-space:nowrap!important;text-align:left!important}
+.dashboard-nav button span{display:block!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;font-size:14px!important;line-height:1.25!important}
+.dashboard-nav button.active{background:#f8eccf!important;color:#214d3a!important;border-color:#3c2b20!important;box-shadow:0 4px 0 #3e2b1f!important}
+.dashboard-nav .nav-icon{width:20px!important;height:20px!important;background:#fff8e8!important;border-radius:7px!important;padding:2px!important}
+.dashboard-profile{background:#f8eccf!important;border:2px solid #4f3424!important;color:#24372f!important}
+.goal-board{align-items:stretch!important}
+.goal-content{display:flex!important;flex-direction:column!important;justify-content:space-between!important;padding:20px 0!important;min-height:235px!important}
+.goal-content h2{font-size:24px!important;line-height:1.2!important;margin:0!important;padding:3px 0 14px!important;color:#17375e!important}
+.goal-metrics{flex:1!important;align-items:stretch!important}
+.goal-metric{justify-content:center!important;min-height:126px!important;padding:10px 6px!important;box-sizing:border-box!important}
+.goal-icon{font-size:18px!important;line-height:1!important;min-height:20px!important}
+.goal-metric b{font-size:27px!important;line-height:1.1!important}
+.goal-metric small{text-align:center!important;line-height:1.25!important;min-height:32px!important;display:flex!important;align-items:flex-start!important;justify-content:center!important}
+.complete-box{align-self:stretch!important;justify-content:center!important;margin:20px 0!important}
+#novel .btn[onclick*="openChapterModal"]{background:#315f54!important;color:#fff!important;border:2px solid #21483e!important;font-weight:800!important;font-size:15px!important;box-shadow:0 4px 0 #21483e!important}
+#novel .btn[onclick*="openChapterModal"]:hover{filter:brightness(1.08)!important}
+#chapterModal .modal-card{background:#fffdf6!important;color:#2f2a22!important}
+#chapterModal .modal-head h3{color:#214d3a!important;font-size:24px!important}
+#chapterModal label,#chapterModal h4,#chapterModal .word-row-title{color:#2f2a22!important;font-weight:750!important}
+#chapterModal input,#chapterModal select,#chapterModal textarea{background:#fff!important;color:#222!important;border:1.5px solid #9f8b6d!important}
+.week-grid{overflow-x:scroll!important;scrollbar-width:auto!important;padding-bottom:18px!important}
+.week-grid::-webkit-scrollbar{height:15px!important}
+.week-mouse-scroll{display:block!important;position:relative!important;bottom:auto!important;margin:10px 2px 0!important;background:#efe2c9!important;border:1px solid #b79568!important}
+.week-mouse-scroll input{display:block!important;width:100%!important;opacity:1!important;pointer-events:auto!important;cursor:ew-resize!important}
+.week-mouse-scroll input:disabled{opacity:1!important;cursor:ew-resize!important}
+@media(max-width:900px){.app{grid-template-columns:1fr!important}.dashboard-sidebar,.sidebar{position:relative!important;width:auto!important;min-width:0!important;height:auto!important;min-height:auto!important;border-right:0!important;border-bottom:4px solid #4c2f20!important}.dashboard-nav{display:flex!important;overflow-x:auto!important;gap:6px!important}.dashboard-nav button{flex:0 0 auto!important;width:auto!important;min-width:max-content!important}.goal-content{min-height:auto!important}.goal-metric{min-height:112px!important}}
 </style>

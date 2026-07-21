@@ -1,25 +1,7 @@
-Little Explorer Learning World V17.1 Family Sync Stable
+Little Explorer Learning World · V23 Clean UI
 
-上传到 GitHub
-1. 解压 ZIP。
-2. 打开 GitHub 仓库 little-exploree-learning-world。
-3. Add file → Upload files。
-4. 上传 index.html、assets 文件夹和本说明文件。
-5. 点击 Commit changes。
-6. 等待 Actions 显示绿色勾，再从 GitHub Pages 网站打开。
-
-正确网站地址
-https://wangweisunvilla-sudo.github.io/little-exploree-learning-world/
-
-重要：不能从 Finder 双击 index.html。地址栏出现 file:// 时，Google OAuth 一定会失败。
-
-Google Cloud 检查
-- OAuth Client 类型：Web application
-- Authorized JavaScript origins：
-  https://wangweisunvilla-sudo.github.io
-  不带仓库路径，不带末尾斜杠。
-- Authorized redirect URIs：留空
-- Audience → Test users：加入实际登录的 Gmail
-- APIs & Services：启用 Google Drive API
-
-网页只使用 OAuth Client ID，不包含 Client Secret。
+1. 解压后用浏览器打开 index.html。
+2. 已完全移除左侧顶部图片、Logo 和边框，导航从顶部直接开始。
+3. 头像更换入口已移动到“设置 → 基本设置”。
+4. 保留 V22.3 已完成的功能：教材当前进度/总章节编辑、进度条百分比、今日任务为 0 时隐藏“未完成 0 项”。
+5. 学习数据仍保存在当前浏览器中，升级前建议先导出备份。
