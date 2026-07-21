@@ -1,11 +1,25 @@
-Little Explorer Learning World — Explorer's Journal Edition V16.3
+Little Explorer Learning World V17.1 Family Sync Stable
 
-本版修复：
-1. 侧边栏“金句收藏”会进入小说精读并定位到金句收藏区。
-2. 侧边栏“单词银行”会进入小说精读并定位到单词银行。
-3. 新增独立金句收藏卡片，可返回原章节。
-4. 合并小说精读顶部重复标题。
-5. 保留阅读手帐、羊皮纸地图、自动词典、默认当天日期与数据导入导出。
+上传到 GitHub
+1. 解压 ZIP。
+2. 打开 GitHub 仓库 little-exploree-learning-world。
+3. Add file → Upload files。
+4. 上传 index.html、assets 文件夹和本说明文件。
+5. 点击 Commit changes。
+6. 等待 Actions 显示绿色勾，再从 GitHub Pages 网站打开。
 
-使用方式：双击 index.html。
-建议升级前先从旧版导出数据，再在新版导入。
+正确网站地址
+https://wangweisunvilla-sudo.github.io/little-exploree-learning-world/
+
+重要：不能从 Finder 双击 index.html。地址栏出现 file:// 时，Google OAuth 一定会失败。
+
+Google Cloud 检查
+- OAuth Client 类型：Web application
+- Authorized JavaScript origins：
+  https://wangweisunvilla-sudo.github.io
+  不带仓库路径，不带末尾斜杠。
+- Authorized redirect URIs：留空
+- Audience → Test users：加入实际登录的 Gmail
+- APIs & Services：启用 Google Drive API
+
+网页只使用 OAuth Client ID，不包含 Client Secret。
