@@ -1,31 +1,16 @@
-Little Explorer Learning World V18 Family Sync · Official GIS
+Little Explorer Learning World V18.4 Cross-Device Stable
 
-上传方法：
+本版已回退到电脑端已验证可用的 V18 OAuth 流程，并修正实际 GitHub Pages 来源域名。
+
+上传：
 1. 解压 ZIP。
-2. 将 index.html、assets 文件夹和本说明上传到 GitHub 仓库根目录并覆盖旧文件。
+2. 将 index.html、assets 文件夹和本说明文件上传到 GitHub 仓库根目录并覆盖。
 3. 等待 GitHub Pages 部署完成。
-4. 用 HTTPS 网站打开，并按 Command+Shift+R 强制刷新。
+4. 电脑和手机均关闭旧标签页后重新打开网站。
+5. Android Chrome 可清除该网站缓存后再测试。
 
-Google Cloud 必需配置：
-- OAuth Client 类型：Web application
-- Authorized JavaScript origin：https://wangweisunvilla-sudo.github.io
-- Google Drive API：Enabled
-- Data Access scope：https://www.googleapis.com/auth/drive.file
-- 测试期间：登录账号加入 Test users
+OAuth JavaScript origin：
+https://wangweisunwilla-sudo.github.io
 
-首次使用：
-1. 浏览器允许该网站弹出窗口。
-2. 点击“连接 Google Drive”。
-3. 完成 Google 账号选择和授权。
-4. 点击“保存到云端”。
-5. 另一台设备先连接，再点击“从云端载入”。
-
-安全说明：
-- 前端只包含 OAuth Client ID，不包含 Client Secret。
-- 使用 drive.file 最小权限。
-
-V18.3 Android Mobile Fix
-- 修复重复 OAuth 函数覆盖问题。
-- Android Chrome 的 Google 授权请求直接从点击事件触发。
-- Save/Load 在没有令牌时也会直接发起授权，并在授权成功后继续操作。
-- 增加 15 秒无响应提示及 popup 错误信息。
+Scope：
+https://www.googleapis.com/auth/drive.file
