@@ -1,16 +1,25 @@
-Little Explorer Learning World V18.4 Cross-Device Stable
+Little Explorer Learning World V17.1 Family Sync Stable
 
-本版已回退到电脑端已验证可用的 V18 OAuth 流程，并修正实际 GitHub Pages 来源域名。
-
-上传：
+上传到 GitHub
 1. 解压 ZIP。
-2. 将 index.html、assets 文件夹和本说明文件上传到 GitHub 仓库根目录并覆盖。
-3. 等待 GitHub Pages 部署完成。
-4. 电脑和手机均关闭旧标签页后重新打开网站。
-5. Android Chrome 可清除该网站缓存后再测试。
+2. 打开 GitHub 仓库 little-exploree-learning-world。
+3. Add file → Upload files。
+4. 上传 index.html、assets 文件夹和本说明文件。
+5. 点击 Commit changes。
+6. 等待 Actions 显示绿色勾，再从 GitHub Pages 网站打开。
 
-OAuth JavaScript origin：
-https://wangweisunwilla-sudo.github.io
+正确网站地址
+https://wangweisunvilla-sudo.github.io/little-exploree-learning-world/
 
-Scope：
-https://www.googleapis.com/auth/drive.file
+重要：不能从 Finder 双击 index.html。地址栏出现 file:// 时，Google OAuth 一定会失败。
+
+Google Cloud 检查
+- OAuth Client 类型：Web application
+- Authorized JavaScript origins：
+  https://wangweisunvilla-sudo.github.io
+  不带仓库路径，不带末尾斜杠。
+- Authorized redirect URIs：留空
+- Audience → Test users：加入实际登录的 Gmail
+- APIs & Services：启用 Google Drive API
+
+网页只使用 OAuth Client ID，不包含 Client Secret。
