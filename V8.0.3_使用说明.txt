@@ -1,0 +1,9 @@
+Little Explorer Learning World V8.0.3
+
+1. 完整解压 ZIP。
+2. 打开 index.html。
+3. 进入“本周学习计划”。
+4. 点击“导出横向 PDF”。
+5. 预览顶部应显示与网页一致的任务总数。
+
+本版只修复 PDF 读取不到当前计划数据的问题。

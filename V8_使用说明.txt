@@ -1,0 +1,7 @@
+Little Explorer Learning World V8 · Design Preservation Edition
+
+1. 解压整个文件夹。
+2. 双击 index.html。
+3. 原 V6.3 的整体设计、图片资源和页面均保留。
+4. 在“本周学习计划”点击导出 PDF，会在当前页面打开预览；预览数据直接来自当前计划。
+5. 请勿单独移动 index.html，assets 与 jszip.min.js 需要保留在原位置。
