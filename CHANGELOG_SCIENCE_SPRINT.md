@@ -1,0 +1,37 @@
+# Science Sprint 1.0
+
+- Added a standalone `科学冲刺` navigation item.
+- Added the Primary 3 WA3 countdown for 14 August 2026.
+- Added a daily revision route from 23 July to 14 August.
+- Marked `2.3.3 Classification of Animals — Birds` as completed.
+- Added the Notes → Recall → Worked Example → Practice → Correction → Rewrite checklist.
+- Added K / R / C / A error tracking.
+- Added the T–N–S–E–K–L OEQ answering routine.
+- Added daily reflection and next-day review notes.
+- Preserved all Reading Guide 2.5, Grammar Detective Lab, bookshelf, challenge, progress, and mistake-lab features.
+- Science progress is stored with the existing browser data and remains compatible with earlier saved data.
+- Added fixed WA3 answer structures for State/Identify, Classify, Compare, Cause and Effect, Material Suitability, Graph/Table, Experiment, Multiple Reasons, and Suggest questions.
+- Added complete English model answers for every answer structure.
+- Added a WA3 keyword bank and a final ten-second checking routine.
+- Added an original 24-question WA3 practice bank: 14 MCQs and 10 OEQs.
+- Added topic and question-type filters, random practice, and an 8-question mini test.
+- Added automatic MCQ marking and structured OEQ keyword/evidence/link checking.
+- Added staged feedback: a targeted hint after the first error and an English model answer after the second.
+- Practice errors feed into K / R / C / A tracking, while attempts, accuracy and correct answers are saved locally.
+- Added a source-paper profile for Nan Hua Primary School P3 Science WA3 2025.
+- Classified the paper into Materials (current WA3 scope) and Life Cycles (outside the current scope).
+- Added 10 original English variants based on the tested skills without reproducing the source paper.
+- Added question-source and Life Cycles filters, source/scope badges, and source-filtered 5-MCQ + 3-OEQ mini tests.
+- Fixed source filtering so selecting the Nan Hua WA3 bank resets conflicting topic/type filters and never falls back to questions from another source.
+- Added automatic progression after a correct answer: show feedback briefly, then move to the next question; incorrect answers remain on screen for correction.
+- Added a mini-test completion state and score instead of looping from the final question back to the first.
+- Restored the statement-combination format for the grasshopper life-cycle question.
+- Added original offline visuals for all 10 Nan Hua variants: water blocks, properties table, statements, plant cycle, duration graph, absorbency set-up, flowchart, two life cycles, observation timeline and results table.
+- Added a `Primary 3 Science Notes & Practice` source profile covering Sections 1.1–2.3.3.
+- Indexed 12 completed book sections: classification, basic needs, growth, response, reproduction, living/non-living things, grouping, plants, plant classification, animals, amphibians and birds.
+- Added 24 original book-aligned questions: 12 MCQs and 12 OEQs.
+- Added 8 original offline visuals for the new book-aligned items, including experimental tables, response data, measurement scales and relationship tables.
+- Added a Book Section filter alongside source, topic and question-type filters.
+- Added distinct source labels for Book Notes + Worked Examples, Child Error Variants, Core WA3 Bank and Nan Hua Variants.
+- Used Notes as the knowledge source and Worked Examples as the question-format and marking-pattern source; textbook practice questions are not copied.
+- Expanded the full science bank to 58 questions while preserving existing local progress and mistake records.
