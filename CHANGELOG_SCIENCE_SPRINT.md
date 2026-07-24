@@ -35,3 +35,12 @@
 - Added distinct source labels for Book Notes + Worked Examples, Child Error Variants, Core WA3 Bank and Nan Hua Variants.
 - Used Notes as the knowledge source and Worked Examples as the question-format and marking-pattern source; textbook practice questions are not copied.
 - Expanded the full science bank to 58 questions while preserving existing local progress and mistake records.
+# 2026-07-24 · Section 2.3.4 Fish
+
+- Marked today’s Practice 2.3.4: **9/12 (75%)**.
+- Added a dated marking record with strengths, corrections and next-review tasks.
+- Marked the 24 July roadmap item complete.
+- Extended book coverage through **2.3.4 Characteristics of Fish**.
+- Added four original English questions (`b25`–`b28`) covering fish characteristics, dissolved oxygen, complete basic needs, and fish/amphibian outer coverings.
+- Added an original oil-layer fish-tank visual and keyword-based OEQ marking.
+- Preserved existing local progress and question attempts.
